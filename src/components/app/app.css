@@ -1,0 +1,16 @@
+body {
+    background: #9fbedd;
+}
+.app {
+    max-width: 960px;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.jumbotron {
+    background: #ffffff;
+}

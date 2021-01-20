@@ -1,0 +1,13 @@
+.character-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.character-info-photo {
+    padding: 0;
+    overflow: hidden;
+}
+
+.character-info-photo img {
+    max-width: 100%;
+}
