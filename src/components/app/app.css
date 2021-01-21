@@ -1,5 +1,5 @@
 body {
-    background: #9fbedd;
+    background: #202329;
 }
 .app {
     max-width: 960px;
@@ -12,5 +12,9 @@ section {
 }
 
 .jumbotron {
-    background: #ffffff;
+    background: #E89AC7;
+    border: 5px solid rgb(76, 255, 143);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 0 0 20px 0px rgba(53,201,221,1);
 }
+

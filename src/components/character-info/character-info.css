@@ -2,14 +2,21 @@
     display: flex;
     align-items: flex-start;
     padding: 2rem;
+    animation: glow 5s infinite;
+}
+.character-info .list-group {
+    box-shadow: -5px -5px 10px 4px rgb(30, 242, 241, 0.2), 5px 5px 10px 4px rgb(246, 5, 10, 0.2);
 }
 
 .character-info-photo {
     padding: 0;
     overflow: hidden;
-    background: #000!important;
+    background: #202329!important;
+    animation: morphing 10s infinite;
+    overflow: hidden;
 }
 
 .character-info-photo img {
     max-width: 100%;
+    box-shadow: 0 0 3px 3px rgba(53,201,221,0.1);
 }

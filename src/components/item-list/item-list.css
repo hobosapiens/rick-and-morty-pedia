@@ -1,3 +1,21 @@
 .item-list {
     padding: 0;
+    position: relative;
+    overflow: initial;
+}
+
+.item-list:after {
+    content: '';
+    position: absolute;
+    left: -14px;
+    bottom: -76px;
+    display: block;
+    width: 150px;
+    height: 83px;
+    background: url('./../../images/goo_2.png') center center no-repeat;
+    background-size: contain;
+}
+
+.list-group-item-action:hover {
+    z-index: 0;
 }
