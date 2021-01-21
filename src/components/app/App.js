@@ -3,7 +3,6 @@ import Header from "../header";
 import RandomCharacter from "../random-character";
 import ItemList from "../item-list";
 import CharacterInfo from "../character-info";
-import Preloader from "../preloader";
 import './app.css'
 
 export default class App extends Component {
@@ -12,7 +11,6 @@ export default class App extends Component {
             <div className="app container">
                 <Header />
                 <section className="bs-docs-section row">
-                    <Preloader />
                     <RandomCharacter />
                     <ItemList />
                     <CharacterInfo />
