@@ -1,6 +1,7 @@
 .random-character {
-display: flex;
+    display: flex;
     flex-wrap: nowrap;
+    padding: 2rem;
 }
 
 .random-character-photo {
@@ -8,6 +9,11 @@ display: flex;
     padding: 0;
     margin: 0 40px 0 0;
     overflow: hidden;
+    background: #000!important;
+}
+
+.random-character-photo img {
+    width: 200px;
 }
 
 .random-character-info {

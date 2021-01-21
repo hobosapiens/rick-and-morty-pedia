@@ -1,11 +1,13 @@
 .character-info {
     display: flex;
     align-items: flex-start;
+    padding: 2rem;
 }
 
 .character-info-photo {
     padding: 0;
     overflow: hidden;
+    background: #000!important;
 }
 
 .character-info-photo img {
