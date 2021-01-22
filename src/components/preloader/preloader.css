@@ -1,15 +1,15 @@
 .preloader {
     display: flex;
     justify-content: center;
-    margin: 20px 0 60px;
+    margin: auto;
     position: relative;
 }
 
 .preloader:before {
     content: '';
     display: block;
-    width: 125px;
-    height: 125px;
+    width: 105px;
+    height: 105px;
     background: transparent;
     position: absolute;
     top: 50%;
@@ -23,5 +23,7 @@
 
 .preloader img {
     position: relative;
+    width: 120px;
+    margin: 20px;
     z-index: 1;
 }

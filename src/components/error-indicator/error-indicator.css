@@ -1,0 +1,15 @@
+.error-indicator {
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(76, 255, 143);
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.error-indicator-text {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 22px 20px 0 0;
+}
