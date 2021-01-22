@@ -39,3 +39,24 @@
     background: url('./../../images/goo_1.png') center center no-repeat;
     background-size: contain;
 }
+
+.random-character-buttons button {
+    background: #66d9ef;
+}
+
+.random-character-buttons button.disabled {
+    background: gray;
+    pointer-events: none;
+}
+
+.random-character-buttons button:first-of-type {
+    position: relative;
+    left: -10px;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}

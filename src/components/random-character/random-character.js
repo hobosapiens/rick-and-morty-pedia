@@ -3,6 +3,8 @@ import './random-character.css';
 import Api from "../../services/api";
 import Preloader from "../preloader";
 import ErrorIndicator from "../error-indicator";
+import close from './../../images/close.svg'
+import show from './../../images/show.svg'
 
 export default class RandomCharacter extends Component {
 
@@ -12,14 +14,14 @@ export default class RandomCharacter extends Component {
         character: {},
         loading: true,
         prevBtnDisabled: false,
-        nextBtnDisabled: false
+        nextBtnDisabled: false,
+        hideContent: false
     };
 
     componentDidMount() {
         this.updateCharacter(this.randomId());
         this.interval = setInterval(() => {
             this.updateCharacter(this.randomId());
-            console.log('refresh');
         }, 6000);
     }
 
@@ -54,10 +56,10 @@ export default class RandomCharacter extends Component {
     };
 
     prevCharacter = () => {
-        if(this.state.character.id <= 1){
-            this.setState({prevDisabled: true})
+        if(this.state.character.id === 1){
+            this.setState({prevBtnDisabled: true})
         } else {
-            this.setState({prevDisabled: false});
+            this.setState({prevBtnDisabled: false,nextBtnDisabled: false});
             this.updateCharacter(this.state.character.id - 1);
             clearInterval(this.interval);
         }
@@ -65,31 +67,41 @@ export default class RandomCharacter extends Component {
 
     nextCharacter = () => {
         if(this.state.character.id === 671){
-            this.setState({nextDisabled: true})
+            this.setState({nextBtnDisabled: true})
         } else {
-            this.setState({nextDisabled: false});
+            this.setState({prevBtnDisabled: false,nextBtnDisabled: false});
             this.updateCharacter(this.state.character.id + 1);
             clearInterval(this.interval);
         }
     };
 
+    toggleButton = () => {
+        this.setState({
+            hideContent: !this.state.hideContent
+        })
+    };
+
     render() {
-        const {character, loading, error, prevBtnDisabled, nextBtnDisabled} = this.state;
+        const {character, loading, error, prevBtnDisabled, nextBtnDisabled, hideContent} = this.state;
+
         const hasData = !(loading || error);
 
         const errorMessage = error ? <ErrorIndicator/> : null;
         const preloader = loading ? <Preloader/> : null;
-        const content = hasData ? <CharacterContent character={character}
-                                                    prevBtnDisabled={prevBtnDisabled}
-                                                    nextBtnDisabled={nextBtnDisabled}
-                                                    prevCharacter={this.prevCharacter}
-                                                    nextCharacter={this.nextCharacter}/> : null;
+        const toggleButton = hasData ? <ToggleButton hideContent={hideContent}
+                                                     toggleButton={this.toggleButton}/> : null;
+        const content = hasData && !hideContent ? <CharacterContent character={character}
+                                                                    prevBtnDisabled={prevBtnDisabled}
+                                                                    nextBtnDisabled={nextBtnDisabled}
+                                                                    prevCharacter={this.prevCharacter}
+                                                                    nextCharacter={this.nextCharacter}/> : null;
 
         return (
-            <div className="random-character col-lg-12 jumbotron">
+            <div className="col-lg-12">
                 {errorMessage}
                 {preloader}
                 {content}
+                {toggleButton}
             </div>
         )
     }
@@ -98,8 +110,9 @@ export default class RandomCharacter extends Component {
 const CharacterContent = ({prevCharacter, nextCharacter, prevBtnDisabled, nextBtnDisabled, character: {imgURL, name, status, species, gender}}) => {
     const prevBtnClass = prevBtnDisabled ? 'disabled' : '';
     const nextBtnClass = nextBtnDisabled ? 'disabled' : '';
+
     return (
-        <React.Fragment>
+        <div className="random-character col-lg-12 jumbotron">
             <div className="random-character-buttons">
                 <button className={'btn btn-outline-primary ' + prevBtnClass}
                         onClick={prevCharacter}>PREV</button>
@@ -117,7 +130,15 @@ const CharacterContent = ({prevCharacter, nextCharacter, prevBtnDisabled, nextBt
                     <li className="list-group-item gender"><span>Gender: </span><span>{gender}</span></li>
                 </ul>
             </div>
-        </React.Fragment>
+        </div>
+    )
+};
 
+const ToggleButton = ({toggleButton, hideContent}) => {
+    return (
+        <React.Fragment>
+            <div className="toggle-button"
+                    onClick={toggleButton}><img src={hideContent ? show : close}/></div>
+        </React.Fragment>
     )
 };
