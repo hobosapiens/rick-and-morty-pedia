@@ -1,21 +1,10 @@
 import React, {Component} from 'react';
 import Header from "../header";
 import RandomCharacter from "../random-character";
-import ItemList from "../item-list";
-import CharacterInfo from "../character-info";
 import './app.css';
+import CharaterPage from "../character-page";
 
 export default class App extends Component {
-
-    state = {
-        selectedCharacter: null
-    };
-
-    onCharacterSelected = (id) => {
-        this.setState({
-            selectedCharacter: id
-        });
-    };
 
     render() {
         return (
@@ -23,9 +12,7 @@ export default class App extends Component {
                 <Header />
                 <section className="bs-docs-section row">
                     <RandomCharacter />
-                    <ItemList onCharacterSelected={this.onCharacterSelected}
-                              characterId={this.state.selectedCharacter}/>
-                    <CharacterInfo characterId={this.state.selectedCharacter} />
+                    <CharaterPage />
                 </section>
             </div>
         );

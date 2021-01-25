@@ -3,7 +3,7 @@
     position: relative;
     overflow: initial;
     transform: translateY(40px) rotate(-10deg) translateX(105px);
-    box-shadow: -5px -5px 10px 4px rgb(30, 242, 241, 0.2), 5px 5px 10px 4px rgb(246, 5, 10, 0.2);
+    box-shadow: -5px -5px 10px 4px rgba(30, 242, 241, 0.2), 5px 5px 10px 4px rgba(246, 5, 10, 0.2);
 }
 
 .item-list li {
@@ -11,6 +11,7 @@
 }
 
 .list-group-item.active {
-    background-color: #202329;
+    background-color: #66d9ef;
     border-color: #202329;
+    color: #202329;
 }
