@@ -41,7 +41,7 @@ export  default class Api {
         return this._transformEpisode(episode);
     }
 
-    _transformCharacter(character){
+    _transformCharacter = (character) => {
         return {
             imgURL: character.image,
             name: character.name,
@@ -50,18 +50,18 @@ export  default class Api {
             gender: character.gender,
             id: character.id
         }
-    }
+    };
 
-    _transformLocation(location){
+    _transformLocation = (location) => {
         return {
             id: location.id,
             name: location.name,
             type: location.type,
             dimension: location.dimension
         }
-    }
+    };
 
-    _transformEpisode(edpisode){
+    _transformEpisode = (edpisode) => {
         return {
             id: edpisode.id,
             name: edpisode.name,

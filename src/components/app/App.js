@@ -3,17 +3,28 @@ import Header from "../header";
 import RandomCharacter from "../random-character";
 import ItemList from "../item-list";
 import CharacterInfo from "../character-info";
-import './app.css'
+import './app.css';
 
 export default class App extends Component {
+
+    state = {
+        selectedCharacter: null
+    };
+
+    onCharacterSelected = (id) => {
+        this.setState({
+            selectedCharacter: id
+        });
+    };
+
     render() {
         return (
             <div className="app container">
                 <Header />
                 <section className="bs-docs-section row">
                     <RandomCharacter />
-                    <ItemList />
-                    <CharacterInfo />
+                    <ItemList onCharacterSelected={this.onCharacterSelected} />
+                    <CharacterInfo characterId={this.state.selectedCharacter} />
                 </section>
             </div>
         );

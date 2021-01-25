@@ -8,8 +8,8 @@
 .preloader:before {
     content: '';
     display: block;
-    width: 105px;
-    height: 105px;
+    width: 75px;
+    height: 75px;
     background: transparent;
     position: absolute;
     top: 50%;
@@ -21,9 +21,28 @@
     z-index: 0;
 }
 
+.preloader:after {
+    content: 'LOADING';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #202329;
+    z-index: 1;
+}
+
 .preloader img {
     position: relative;
-    width: 120px;
     margin: 20px;
     z-index: 1;
+    animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
