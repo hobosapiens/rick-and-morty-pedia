@@ -11,44 +11,44 @@ export  default class Api {
         return await res.json();
     }
 
-    async getAllCharacters(){
+    getAllCharacters = async () => {
         const res = await this.getResource(`/character`);
         return res.results.map(this._transformCharacter);
-    }
+    };
 
-    async getCharacter(id){
+    getCharacter = async (id) => {
         const character = await this.getResource(`/character/${id}`);
         return this._transformCharacter(character);
-    }
+    };
 
-    async getAllLocations(){
+    getAllLocations = async () => {
         const res = await this.getResource(`/location`);
         return res.results.map(this._transformLocation);
-    }
+    };
 
-    async getLocation(id){
+    getLocation = async (id) => {
         const location = await this.getResource(`/location/${id}`)
         return this._transformLocation(location);
-    }
+    };
 
-    async getAllEpisodes(){
+    getAllEpisodes = async () => {
         const res = await this.getResource(`/episode`);
-        return res.results.map(this._transformEpisode());
-    }
+        return res.results.map(this._transformEpisode);
+    };
 
-    async getEpisode(id){
+    getEpisode = async (id) => {
         const episode = await this.getResource(`/episode/${id}`)
         return this._transformEpisode(episode);
-    }
+    };
 
     _transformCharacter = (character) => {
         return {
+            id: character.id,
             imgURL: character.image,
             name: character.name,
             status: character.status,
             species: character.species,
-            gender: character.gender,
-            id: character.id
+            gender: character.gender
         }
     };
 
@@ -61,12 +61,12 @@ export  default class Api {
         }
     };
 
-    _transformEpisode = (edpisode) => {
+    _transformEpisode = (episode) => {
         return {
-            id: edpisode.id,
-            name: edpisode.name,
-            air_date: edpisode.air_date,
-            episode: edpisode.episode
+            id: episode.id,
+            name: episode.name,
+            air_date: episode.air_date,
+            episode: episode.episode
         }
     }
 }

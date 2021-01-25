@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import './item-list.css';
-import Api from "../../services/api";
 import Preloader from "../preloader";
 
 export default class ItemList extends Component  {
 
-    ramApi = new Api();
-
     state = {
-        characterList: null,
+        itemList: null,
         activeId: null
     };
 
     componentDidMount() {
-        this.ramApi
-            .getAllCharacters()
-            .then((characterList) => {
+        const {getListData} = this.props;
+
+        getListData()
+            .then((itemList) => {
                 this.setState({
-                    characterList
+                    itemList
                 });
             });
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.characterId !== prevProps.characterId){
+        if(this.props.itemId !== prevProps.itemId){
             this.setState({
-                activeId: this.props.characterId
+                activeId: this.props.itemId
             });
         }
     }
@@ -35,19 +33,19 @@ export default class ItemList extends Component  {
             return <li className={this.state.activeId === id ?
                 'list-group-item list-group-item-action active' :
                 'list-group-item list-group-item-action'}
-                       onClick={() => this.props.onCharacterSelected(id)}
+                       onClick={() => this.props.onItemSelected(id)}
                        key={id}>{name}</li>
         })
     };
 
     render() {
-        const {characterList} = this.state;
+        const {itemList} = this.state;
 
-        if(!characterList) {
+        if(!itemList) {
             return <Preloader/>
         }
 
-        const list = this.renderList(characterList);
+        const list = this.renderList(itemList);
 
         return (
             <ul className="item-list col-lg-4 list-group">
