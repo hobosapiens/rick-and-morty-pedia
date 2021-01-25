@@ -23,7 +23,8 @@ export default class App extends Component {
                 <Header />
                 <section className="bs-docs-section row">
                     <RandomCharacter />
-                    <ItemList onCharacterSelected={this.onCharacterSelected} />
+                    <ItemList onCharacterSelected={this.onCharacterSelected}
+                              characterId={this.state.selectedCharacter}/>
                     <CharacterInfo characterId={this.state.selectedCharacter} />
                 </section>
             </div>

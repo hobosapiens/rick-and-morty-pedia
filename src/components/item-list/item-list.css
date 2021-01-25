@@ -9,3 +9,8 @@
 .item-list li {
     cursor: pointer;
 }
+
+.list-group-item.active {
+    background-color: #202329;
+    border-color: #202329;
+}

@@ -8,7 +8,8 @@ export default class ItemList extends Component  {
     ramApi = new Api();
 
     state = {
-        characterList: null
+        characterList: null,
+        activeId: null
     };
 
     componentDidMount() {
@@ -21,11 +22,21 @@ export default class ItemList extends Component  {
             });
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props.characterId !== prevProps.characterId){
+            this.setState({
+                activeId: this.props.characterId
+            });
+        }
+    }
+
     renderList = (characters) => {
         return characters.map(({name, id}) => {
-            return <li className="list-group-item list-group-item-action"
-                      onClick={() => this.props.onCharacterSelected(id)}
-                      key={id}>{name}</li>
+            return <li className={this.state.activeId === id ?
+                'list-group-item list-group-item-action active' :
+                'list-group-item list-group-item-action'}
+                       onClick={() => this.props.onCharacterSelected(id)}
+                       key={id}>{name}</li>
         })
     };
 
