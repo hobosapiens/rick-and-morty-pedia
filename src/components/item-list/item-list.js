@@ -31,7 +31,7 @@ export default class ItemList extends Component  {
     renderList = (arr) => {
         return arr.map((item) => {
             const { id } = item;
-            const label = this.props.renderItem(item);
+            const label = this.props.children(item);
 
             return <li className={this.state.activeId === id ?
                 'list-group-item list-group-item-action active' :

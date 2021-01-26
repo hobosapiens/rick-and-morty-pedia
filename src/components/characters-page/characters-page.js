@@ -2,23 +2,16 @@ import React, {Component} from 'react';
 import './characters-page.css';
 import ItemList from "../item-list";
 import Api from "../../services/api";
-import ErrorIndicator from "../error-indicator";
 import CharacterInfo from "../character-info";
 import Row from "../row";
+import ErrorBoundary from "../error-boundary";
 
 export default class CharactersPage extends Component {
     ramApi = new Api();
 
     state = {
-        selectedItem: null,
-        hasError: false
+        selectedItem: null
     };
-
-    componentDidCatch() {
-        this.setState({
-            hasError: true
-        })
-    }
 
     onItemSelected = (id) => {
         this.setState({
@@ -27,24 +20,24 @@ export default class CharactersPage extends Component {
     };
 
     render() {
-
-        if(this.state.hasError){
-            return <ErrorIndicator />
-        }
-
         const itemList = (
-            <ItemList onItemSelected={this.onItemSelected}
-                      itemId={this.state.selectedItem}
-                      getListData={this.ramApi.getAllCharacters}
-                      renderItem={({name, species}) => <span>{name} - {species}</span>}/>
+            <ErrorBoundary>
+                <ItemList onItemSelected={this.onItemSelected}
+                          itemId={this.state.selectedItem}
+                          getListData={this.ramApi.getAllCharacters}>
+                    {(i) => <span>{i.name} - {i.species}</span>}
+                </ItemList>
+            </ErrorBoundary>
         );
 
         const charcterInfo = (
-            <CharacterInfo characterId={this.state.selectedItem}/>
+            <ErrorBoundary>
+                <CharacterInfo characterId={this.state.selectedItem}/>
+            </ErrorBoundary>
         );
 
         return (
-            <Row left={itemList} right={charcterInfo} />
+            <Row left={itemList} right={charcterInfo}/>
         )
     }
 }
