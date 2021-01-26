@@ -1,16 +1,16 @@
-.character-info {
+.item-info {
     display: flex;
     align-items: flex-start;
     padding: 2rem;
     animation: glow 5s infinite;
 }
 
-.character-info .list-group {
+.item-info .list-group {
     box-shadow: -5px -5px 10px 4px rgba(30, 242, 241, 0.2), 5px 5px 10px 4px rgba(246, 5, 10, 0.2);
     transform: translateY(40px) rotate(10deg) translateX(5px);
 }
 
-.character-info-photo {
+.item-info-photo {
     width: 142px;
     height: 142px;
     padding: 0;
@@ -19,12 +19,12 @@
     animation: morphing 10s infinite;
 }
 
-.character-info-photo img {
+.item-info-photo img {
     max-width: 100%;
     box-shadow: 0 0 3px 3px rgba(53,201,221,0.1);
 }
 
-.choose-character {
+.choose-item {
     color: #66d9ef;
     font-size: 80px;
     text-shadow: -3px 5px 0 rgb(30,242,241), 3px 5px 0 rgb(246,5,10);

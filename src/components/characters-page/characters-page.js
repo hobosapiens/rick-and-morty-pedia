@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './characters-page.css';
 import ItemList from "../item-list";
 import Api from "../../services/api";
-import CharacterInfo from "../character-info";
+import ItemInfo from "../item-info";
 import Row from "../row";
 import ErrorBoundary from "../error-boundary";
 
@@ -30,14 +30,14 @@ export default class CharactersPage extends Component {
             </ErrorBoundary>
         );
 
-        const charcterInfo = (
+        const itemInfo = (
             <ErrorBoundary>
-                <CharacterInfo characterId={this.state.selectedItem}/>
+                <ItemInfo itemId={this.state.selectedItem}/>
             </ErrorBoundary>
         );
 
         return (
-            <Row left={itemList} right={charcterInfo}/>
+            <Row left={itemList} right={itemInfo}/>
         )
     }
 }

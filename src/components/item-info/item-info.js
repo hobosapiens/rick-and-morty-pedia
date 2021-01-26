@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import './character-info.css';
+import './item-info.css';
 import Api from "../../services/api";
 import ErrorIndicator from "../error-indicator";
 import Preloader from "../preloader";
 
-export default class CharacterInfo extends Component {
+export default class ItemInfo extends Component {
     ramApi = new Api();
 
     state = {
-        character: null,
-        characterId: null,
+        item: null,
+       itemId: null,
         loading: true,
         error: false
     };
@@ -19,28 +19,28 @@ export default class CharacterInfo extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.characterId !== prevProps.characterId){
+        if(this.props.itemId !== prevProps.itemId){
             this.updateCharacter();
         }
     }
 
     updateCharacter = () => {
-        const { characterId } = this.props;
-        if(!characterId) {
+        const { itemId } = this.props;
+        if(!itemId) {
             return;
         }
         this.setState({
             loading: true
         });
         this.ramApi
-            .getCharacter(characterId)
+            .getCharacter(itemId)
             .then(this.onCharacterLoaded)
             .catch(this.onError);
     };
 
-    onCharacterLoaded = (character) => {
+    onCharacterLoaded = (item) => {
         this.setState({
-            character,
+            item,
             loading: false,
             error: false
         })
@@ -54,15 +54,15 @@ export default class CharacterInfo extends Component {
     };
 
     render() {
-        const {character, loading, error} = this.state;
-        const characterChoose = !error ? <span className="choose-character">CHOOSE A CHARACTER</span> : null;
+        const {item, loading, error} = this.state;
+        const itemChoose = !error ? <span className="choose-item">CHOOSE A CHARACTER</span> : null;
         const errorMessage = error ? <ErrorIndicator/> : null;
 
-        if (!this.state.character) {
+        if (!this.state.item) {
 
             return (
                 <React.Fragment>
-                    {characterChoose}
+                    {itemChoose}
                     {errorMessage}
                 </React.Fragment>
             )
@@ -71,7 +71,7 @@ export default class CharacterInfo extends Component {
 
         const hasData = !(loading || error);
         const preloader = loading ? <Preloader/> : null;
-        const content = hasData ? <CharacterInfoContent character={character} /> : null;
+        const content = hasData ? <ItemInfoContent item={item} /> : null;
 
         return (
             <React.Fragment>
@@ -82,13 +82,13 @@ export default class CharacterInfo extends Component {
     }
 };
 
-const CharacterInfoContent = ({character: {imgURL, name, status, species, gender}}) => {
+const ItemInfoContent = ({item: {imgURL, name, status, species, gender}}) => {
     return (
-        <div className="character-info jumbotron">
-            <div className="character-info-photo col-lg-4 jumbotron">
+        <div className="item-info jumbotron">
+            <div className="item-info-photo col-lg-4 jumbotron">
                 <img src={imgURL} alt={name} />
             </div>
-            <div className="character-info-text col-lg-8">
+            <div className="item-info-text col-lg-8">
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item name">{name}</li>
                     <li className="list-group-item status">{status}</li>
