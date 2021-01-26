@@ -2,24 +2,9 @@ import React, {Component} from 'react';
 import Header from "../header";
 import RandomCharacter from "../random-character";
 import './app.css';
-import Api from "../../services/api";
-import ItemList from "../item-list";
-import CharacterInfo from "../character-info";
+import CharactersPage from "../characters-page";
 
 export default class App extends Component {
-
-    ramApi = new Api();
-
-    state = {
-        selectedItem: null,
-        hasError: false
-    };
-
-    onItemSelected = (id) => {
-        this.setState({
-            selectedItem: id
-        });
-    };
 
     render() {
         return (
@@ -27,21 +12,7 @@ export default class App extends Component {
                 <Header />
                 <section className="bs-docs-section row">
                     <RandomCharacter />
-                    <ItemList onItemSelected={this.onItemSelected}
-                              itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}
-                              renderItem={({name, species}) => <span>{name} - {species}</span>}/>
-                    <CharacterInfo characterId={this.state.selectedItem} />
-                    <ItemList onItemSelected={this.onItemSelected}
-                              itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}
-                              renderItem={(item) => item.name}/>
-                    <CharacterInfo characterId={this.state.selectedItem} />
-                    <ItemList onItemSelected={this.onItemSelected}
-                              itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}
-                              renderItem={(item) => item.name}/>
-                    <CharacterInfo characterId={this.state.selectedItem} />
+                    <CharactersPage />
                 </section>
             </div>
         );

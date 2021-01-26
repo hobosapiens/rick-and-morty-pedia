@@ -1,9 +1,12 @@
 body {
     background-color: #202329;
+    padding-bottom: 40px;
 }
 
 .app {
     max-width: 960px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 section {
