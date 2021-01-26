@@ -29,15 +29,18 @@ export default class App extends Component {
                     <RandomCharacter />
                     <ItemList onItemSelected={this.onItemSelected}
                               itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}/>
+                              getListData={this.ramApi.getAllCharacters}
+                              renderItem={({name, species}) => <span>{name} - {species}</span>}/>
                     <CharacterInfo characterId={this.state.selectedItem} />
                     <ItemList onItemSelected={this.onItemSelected}
                               itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}/>
+                              getListData={this.ramApi.getAllCharacters}
+                              renderItem={(item) => item.name}/>
                     <CharacterInfo characterId={this.state.selectedItem} />
                     <ItemList onItemSelected={this.onItemSelected}
                               itemId={this.state.selectedItem}
-                              getListData={this.ramApi.getAllCharacters}/>
+                              getListData={this.ramApi.getAllCharacters}
+                              renderItem={(item) => item.name}/>
                     <CharacterInfo characterId={this.state.selectedItem} />
                 </section>
             </div>
