@@ -61,10 +61,10 @@ export default class CharacterInfo extends Component {
         if (!this.state.character) {
 
             return (
-                <div className="col-lg-7">
+                <React.Fragment>
                     {characterChoose}
                     {errorMessage}
-                </div>
+                </React.Fragment>
             )
 
         }
@@ -74,10 +74,10 @@ export default class CharacterInfo extends Component {
         const content = hasData ? <CharacterInfoContent character={character} /> : null;
 
         return (
-            <div className="col-lg-7">
+            <React.Fragment>
                 {preloader}
                 {content}
-            </div>
+            </React.Fragment>
         )
     }
 };

@@ -51,7 +51,7 @@ export default class ItemList extends Component  {
         const list = this.renderList(itemList);
 
         return (
-            <ul className="item-list col-lg-4 list-group">
+            <ul className="item-list list-group">
                 { list }
             </ul>
         )

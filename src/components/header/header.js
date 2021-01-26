@@ -3,7 +3,7 @@ import './header.css';
 
 const Header = () => {
     return (
-        <div className="bs-component header">
+        <div className="bs-component header row">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <a className="navbar-brand" href="#">Rick'N'Mortypedia</a>
                     <div className="collapse navbar-collapse" id="navbarColor03">

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './characters-page.css';
 import ItemList from "../item-list";
-import CharacterInfo from "../character-info";
 import Api from "../../services/api";
 import ErrorIndicator from "../error-indicator";
+import CharacterInfo from "../character-info";
+import Row from "../row";
 
 export default class CharactersPage extends Component {
-
     ramApi = new Api();
 
     state = {
@@ -32,14 +32,19 @@ export default class CharactersPage extends Component {
             return <ErrorIndicator />
         }
 
+        const itemList = (
+            <ItemList onItemSelected={this.onItemSelected}
+                      itemId={this.state.selectedItem}
+                      getListData={this.ramApi.getAllCharacters}
+                      renderItem={({name, species}) => <span>{name} - {species}</span>}/>
+        );
+
+        const charcterInfo = (
+            <CharacterInfo characterId={this.state.selectedItem}/>
+        );
+
         return (
-            <React.Fragment>
-                <ItemList onItemSelected={this.onItemSelected}
-                          itemId={this.state.selectedItem}
-                          getListData={this.ramApi.getAllCharacters}
-                          renderItem={({name, species}) => <span>{name} - {species}</span>}/>
-                <CharacterInfo characterId={this.state.selectedItem}/>
-            </React.Fragment>
+            <Row left={itemList} right={charcterInfo} />
         )
     }
 }
