@@ -21,13 +21,17 @@ export  default class Api {
         return this._transformCharacter(character);
     };
 
+    getCharacterImage = ({ id }) => {
+        return `${this._apiBase}/character/avatar/${id}.jpeg`;
+    };
+
     getAllLocations = async () => {
         const res = await this.getResource(`/location`);
         return res.results.map(this._transformLocation);
     };
 
     getLocation = async (id) => {
-        const location = await this.getResource(`/location/${id}`)
+        const location = await this.getResource(`/location/${id}`);
         return this._transformLocation(location);
     };
 
@@ -37,7 +41,7 @@ export  default class Api {
     };
 
     getEpisode = async (id) => {
-        const episode = await this.getResource(`/episode/${id}`)
+        const episode = await this.getResource(`/episode/${id}`);
         return this._transformEpisode(episode);
     };
 

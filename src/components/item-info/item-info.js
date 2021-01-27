@@ -1,15 +1,26 @@
 import React, {Component} from 'react';
 import './item-info.css';
-import Api from "../../services/api";
 import ErrorIndicator from "../error-indicator";
 import Preloader from "../preloader";
 
-export default class ItemInfo extends Component {
-    ramApi = new Api();
+const Record = ({item, field, label}) => {
+  return (
+      <li className="list-group-item name">
+          <span>{label}: </span>
+          <span>{item[field]}</span>
+      </li>
+  )
+};
 
+export {
+  Record
+};
+
+export default class ItemInfo extends Component {
     state = {
         item: null,
-       itemId: null,
+        image: null,
+        itemId: null,
         loading: true,
         error: false
     };
@@ -24,26 +35,24 @@ export default class ItemInfo extends Component {
         }
     }
 
-    updateCharacter = () => {
-        const { itemId } = this.props;
-        if(!itemId) {
-            return;
-        }
+    updateCharacter() {
         this.setState({
             loading: true
         });
-        this.ramApi
-            .getCharacter(itemId)
-            .then(this.onCharacterLoaded)
+        const { itemId, getData, getImageUrl } = this.props;
+        if(!itemId) {
+            return;
+        }
+        getData(itemId)
+            .then((item) =>
+                this.setState({
+                    item,
+                    image: getImageUrl(item),
+                    loading: false,
+                    error: false
+                })
+            )
             .catch(this.onError);
-    };
-
-    onCharacterLoaded = (item) => {
-        this.setState({
-            item,
-            loading: false,
-            error: false
-        })
     };
 
     onError = (err) => {
@@ -54,7 +63,7 @@ export default class ItemInfo extends Component {
     };
 
     render() {
-        const {item, loading, error} = this.state;
+        const {item, image, loading, error} = this.state;
         const itemChoose = !error ? <span className="choose-item">CHOOSE A CHARACTER</span> : null;
         const errorMessage = error ? <ErrorIndicator/> : null;
 
@@ -71,7 +80,7 @@ export default class ItemInfo extends Component {
 
         const hasData = !(loading || error);
         const preloader = loading ? <Preloader/> : null;
-        const content = hasData ? <ItemInfoContent item={item} /> : null;
+        const content = hasData ? <ItemInfoContent item={item} image={image} children={this.props.children} /> : null;
 
         return (
             <React.Fragment>
@@ -82,18 +91,17 @@ export default class ItemInfo extends Component {
     }
 };
 
-const ItemInfoContent = ({item: {imgURL, name, status, species, gender}}) => {
+const ItemInfoContent = ({item: {name, status, species, gender}, item, image, children}) => {
     return (
         <div className="item-info jumbotron">
             <div className="item-info-photo col-lg-4 jumbotron">
-                <img src={imgURL} alt={name} />
+                <img src={image} alt={name} />
             </div>
             <div className="item-info-text col-lg-8">
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item name">{name}</li>
-                    <li className="list-group-item status">{status}</li>
-                    <li className="list-group-item species">{species}</li>
-                    <li className="list-group-item gender">{gender}</li>
+                    { React.Children.map(children, (child) => {
+                        return React.cloneElement(child, {item});
+                    }) }
                 </ul>
             </div>
         </div>
