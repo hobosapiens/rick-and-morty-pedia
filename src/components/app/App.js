@@ -51,7 +51,7 @@ export default class App extends Component {
             <ErrorBoundary>
                 <ItemList onItemSelected={this.onItemSelected}
                           itemId={this.state.selectedItem}
-                          getListData={this.ramApi.getAllCharacters}>
+                          getData={this.ramApi.getAllCharacters}>
                     {(i) => <span>{i.name} - {i.species}</span>}
                 </ItemList>
             </ErrorBoundary>
@@ -61,7 +61,7 @@ export default class App extends Component {
             <ErrorBoundary>
                 <ItemList onItemSelected={this.onItemSelected}
                           itemId={this.state.selectedItem}
-                          getListData={this.ramApi.getAllLocations}>
+                          getData={this.ramApi.getAllLocations}>
                     {(i) => <span>{i.name} - {i.species}</span>}
                 </ItemList>
             </ErrorBoundary>

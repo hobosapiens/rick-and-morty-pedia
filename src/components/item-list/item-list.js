@@ -1,59 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './item-list.css';
-import Preloader from "../preloader";
+import Api from "../../services/api";
+import withData from "../hoc";
 
-export default class ItemList extends Component  {
+const ItemList = (props) => {
 
-    state = {
-        itemList: null,
-        activeId: null
-    };
+    const {data, activeId, onItemSelected, children: renderLabel} = props;
 
-    componentDidMount() {
-        const {getListData} = this.props;
-
-        getListData()
-            .then((itemList) => {
-                this.setState({
-                    itemList
-                });
-            });
-    }
-
-    componentDidUpdate(prevProps) {
-        if(this.props.itemId !== prevProps.itemId){
-            this.setState({
-                activeId: this.props.itemId
-            });
-        }
-    }
-
-    renderList = (arr) => {
+    const renderList = (arr) => {
         return arr.map((item) => {
-            const { id } = item;
-            const label = this.props.children(item);
+            const {id} = item;
+            const label = renderLabel(item);
 
-            return <li className={this.state.activeId === id ?
+            return <li className={activeId === id ?
                 'list-group-item list-group-item-action active' :
                 'list-group-item list-group-item-action'}
-                       onClick={() => this.props.onItemSelected(id)}
+                       onClick={() => onItemSelected(id)}
                        key={id}>{label}</li>
         })
     };
 
-    render() {
-        const {itemList} = this.state;
+    const list = renderList(data);
 
-        if(!itemList) {
-            return <Preloader/>
-        }
-
-        const list = this.renderList(itemList);
-
-        return (
-            <ul className="item-list list-group">
-                { list }
-            </ul>
-        )
-    }
+    return (
+        <ul className="item-list list-group">
+            {list}
+        </ul>
+    )
 };
+
+const { getAllCharacters } = new Api();
+
+export default withData(ItemList, getAllCharacters);
