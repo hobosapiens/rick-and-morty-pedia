@@ -9,6 +9,7 @@ import Api from "../../services/api";
 import {Record} from "../item-info/item-info";
 import ErrorBoundary from "../error-boundary";
 import ItemList from "../item-list";
+import {CharacterList, EpisodesList, LocationList} from "../item-components/item-lists";
 
 export default class App extends Component {
     ramApi = new Api();
@@ -73,8 +74,11 @@ export default class App extends Component {
                 <section className="bs-docs-section row">
                     <RandomCharacter />
                     {/*<CharactersPage />*/}
-                    <Row left={characterList} right={characterInfo} />
-                    <Row left={locationList} right={locationInfo} />
+                    {/*<Row left={characterList} right={characterInfo} />*/}
+                    {/*<Row left={locationList} right={locationInfo} />*/}
+                    <CharacterList>
+                        { ({name}) => <span>{name}</span> }
+                    </CharacterList>
                 </section>
             </div>
         );

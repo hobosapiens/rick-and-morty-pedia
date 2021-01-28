@@ -1,7 +1,5 @@
 import React from 'react';
 import './item-list.css';
-import Api from "../../services/api";
-import withData from "../hoc";
 
 const ItemList = (props) => {
 
@@ -29,6 +27,4 @@ const ItemList = (props) => {
     )
 };
 
-const { getAllCharacters } = new Api();
-
-export default withData(ItemList, getAllCharacters);
+export default ItemList;
