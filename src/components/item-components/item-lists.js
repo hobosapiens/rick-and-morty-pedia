@@ -1,15 +1,7 @@
 import React from 'react';
-import Api from "../../services/api";
 import ItemList from "../item-list";
 import withData from "../hoc/with-data";
-
-const ramApi = new Api();
-
-const {
-    getAllCharacters,
-    getAllLocations,
-    getAllEpisodes
-} = ramApi;
+import withApi from "../hoc/with-api";
 
 const withChildren = (Wrapped, fn) => {
     return (props) => {
@@ -21,13 +13,31 @@ const withChildren = (Wrapped, fn) => {
     }
 };
 
+const mapAllCharactersMethodToProps = (ramApi) => {
+    return {
+        getData: ramApi.getAllCharacters
+    }
+};
+
+const mapAllLocationsMethodToProps = (ramApi) => {
+    return {
+        getData: ramApi.getAllLocations
+    }
+};
+
+const mapAllEpisodessMethodToProps = (ramApi) => {
+    return {
+        getData: ramApi.getAllEpisodes
+    }
+};
+
 const renderName = ({name}) => <span>{name}</span>;
 
-const CharactersList = withData(withChildren(ItemList, renderName), getAllCharacters);
+const CharactersList = withApi(withData(withChildren(ItemList, renderName)), mapAllCharactersMethodToProps);
 
-const LocationsList = withData(withChildren(ItemList, renderName), getAllLocations);
+const LocationsList = withApi(withData(withChildren(ItemList, renderName)), mapAllLocationsMethodToProps);
 
-const EpisodesList = withData(withChildren(ItemList, renderName), getAllEpisodes);
+const EpisodesList = withApi(withData(withChildren(ItemList, renderName)), mapAllEpisodessMethodToProps);
 
 export {
     CharactersList,

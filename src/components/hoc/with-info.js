@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import Preloader from "../preloader";
 
-const withInfo = (View, getData, getImageUrl) => {
+const withInfo = (View) => {
     return class extends Component {
         state = {
             data: null,
@@ -27,11 +26,11 @@ const withInfo = (View, getData, getImageUrl) => {
             if(!this.props.selectedItem) {
                 return;
             }
-            getData(this.props.selectedItem)
+            this.props.getData(this.props.selectedItem)
                 .then((data) =>
                     this.setState({
                         data,
-                        image: getImageUrl(data),
+                        image: this.props.getImageUrl(data),
                         loading: false,
                         error: false
                     })

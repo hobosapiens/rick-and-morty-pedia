@@ -8,6 +8,7 @@ import ItemInfo from "../item-info";
 import Api from "../../services/api";
 import ErrorBoundary from "../error-boundary";
 import ItemList from "../item-list";
+import { ApiProvider } from './../api-context'
 import {
     CharactersList,
     EpisodesList,
@@ -76,24 +77,28 @@ export default class App extends Component {
         // );
 
         return (
-            <div className="app container">
-                <Header />
-                <section className="bs-docs-section row">
-                    {/*<RandomCharacter />*/}
-                    {/*<CharactersPage />*/}
-                    {/*<Row left={characterList} right={characterInfo} />*/}
-                    {/*<Row left={locationList} right={locationInfo} />*/}
+            <ApiProvider value={this.ramApi}>
+                <ErrorBoundary>
+                    <div className="app container">
+                        <Header/>
+                        <section className="bs-docs-section row">
+                            {/*<RandomCharacter />*/}
+                            {/*<CharactersPage />*/}
+                            {/*<Row left={characterList} right={characterInfo} />*/}
+                            {/*<Row left={locationList} right={locationInfo} />*/}
 
-                    <CharactersList onItemSelected={this.onItemSelected} />
-                    <CharactersInfo selectedItem={selectedItem} />
+                            <CharactersList onItemSelected={this.onItemSelected}/>
+                            <CharactersInfo selectedItem={selectedItem}/>
 
-                    {/*<LocationsList onItemSelected={this.onItemSelected} />*/}
-                    {/*<LocationsInfo selectedItem={selectedItem} />*/}
+                            <LocationsList onItemSelected={this.onItemSelected} />
+                            <LocationsInfo selectedItem={selectedItem} />
 
-                    {/*<EpisodesList onItemSelected={this.onItemSelected} />*/}
-                    {/*<EpisodesInfo selectedItem={selectedItem} />*/}
-                </section>
-            </div>
+                            <EpisodesList onItemSelected={this.onItemSelected} />
+                            <EpisodesInfo selectedItem={selectedItem} />
+                        </section>
+                    </div>
+                </ErrorBoundary>
+            </ApiProvider>
         );
     }
 }
