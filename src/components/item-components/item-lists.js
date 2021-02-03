@@ -1,7 +1,7 @@
 import React from 'react';
 import Api from "../../services/api";
-import withData from "../hoc";
 import ItemList from "../item-list";
+import withData from "../hoc/with-data";
 
 const ramApi = new Api();
 
@@ -11,14 +11,26 @@ const {
     getAllEpisodes
 } = ramApi;
 
-const CharacterList = withData(ItemList, getAllCharacters);
+const withChildren = (Wrapped, fn) => {
+    return (props) => {
+        return (
+            <Wrapped {...props}>
+                {fn}
+            </Wrapped>
+        )
+    }
+};
 
-const LocationList = withData(ItemList, getAllLocations);
+const renderName = ({name}) => <span>{name}</span>;
 
-const EpisodesList = withData(ItemList, getAllEpisodes);
+const CharactersList = withData(withChildren(ItemList, renderName), getAllCharacters);
+
+const LocationsList = withData(withChildren(ItemList, renderName), getAllLocations);
+
+const EpisodesList = withData(withChildren(ItemList, renderName), getAllEpisodes);
 
 export {
-    CharacterList,
-    LocationList,
+    CharactersList,
+    LocationsList,
     EpisodesList
 }

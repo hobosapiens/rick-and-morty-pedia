@@ -1,20 +1,20 @@
 import {
-    CharacterLists,
-    LocatioLists,
-    EpisodesLists
+    CharactersList,
+    LocationsList,
+    EpisodesList
 } from './item-lists';
 
 import {
-    CharacterInfo,
-    LocatioInfo,
+    CharactersInfo,
+    LocationsInfo,
     EpisodesInfo
 } from './item-infos';
 
 export {
-    CharacterLists,
-    LocatioLists,
-    EpisodesLists,
-    CharacterInfo,
-    LocatioInfo,
+    CharactersList,
+    LocationsList,
+    EpisodesList,
+    CharactersInfo,
+    LocationsInfo,
     EpisodesInfo
 }
