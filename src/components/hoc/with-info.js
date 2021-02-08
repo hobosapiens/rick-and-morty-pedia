@@ -10,16 +10,18 @@ const withInfo = (View) => {
         };
 
         componentDidMount() {
-            this.updateCharacter();
+            this.updateItem();
         }
 
         componentDidUpdate(prevProps) {
-            if(this.props.selectedItem !== prevProps.selectedItem){
-                this.updateCharacter();
+            if (this.props.selectedItem !== prevProps.selectedItem ||
+                this.props.getData !== prevProps.getData ||
+                this.props.getImageUrl !== prevProps.getImageUrl) {
+                this.updateItem();
             }
         }
 
-        updateCharacter() {
+        updateItem() {
             this.setState({
                 loading: true
             });

@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 
-const Header = () => {
+const Header = ({onApiChange}) => {
     return (
         <div className="bs-component header row">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,6 +16,11 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="Episodes">Episodes</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link"
+                                   onClick={onApiChange}
+                                   href="#">Api Change</a>
                             </li>
                         </ul>
                     </div>

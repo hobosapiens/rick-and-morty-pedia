@@ -6,6 +6,7 @@ import CharactersPage from "../characters-page";
 import Row from "../row";
 import ItemInfo from "../item-info";
 import Api from "../../services/api";
+import FakeApi from "../../services/fakeApi";
 import ErrorBoundary from "../error-boundary";
 import ItemList from "../item-list";
 import { ApiProvider } from './../api-context'
@@ -20,10 +21,10 @@ import {
 import Record from "../record";
 
 export default class App extends Component {
-    ramApi = new Api();
 
     state = {
-        selectedItem: null
+        selectedItem: null,
+        ramApi: new FakeApi()
     };
 
     onItemSelected = (id) => {
@@ -32,9 +33,18 @@ export default class App extends Component {
         });
     };
 
+    onApiChange = () => {
+        this.setState(({ramApi}) => {
+            const mainApi = ramApi instanceof Api ? FakeApi : Api;
+            return {
+                ramApi: new mainApi()
+            }
+        })
+    };
+
     render() {
         const {selectedItem} = this.state;
-        const {getCharacter, getLocation, getCharacterImage} = this.ramApi;
+        const {getCharacter, getLocation, getCharacterImage} = this.state.ramApi;
 
         // const characterInfo = (
         //     <ItemInfo itemId={selectedItem}
@@ -60,7 +70,7 @@ export default class App extends Component {
         //     <ErrorBoundary>
         //         <ItemList onItemSelected={this.onItemSelected}
         //                   itemId={this.state.selectedItem}
-        //                   getData={this.ramApi.getAllCharacters}>
+        //                   getData={this.state.ramApi.getAllCharacters}>
         //             {(i) => <span>{i.name} - {i.species}</span>}
         //         </ItemList>
         //     </ErrorBoundary>
@@ -70,17 +80,17 @@ export default class App extends Component {
         //     <ErrorBoundary>
         //         <ItemList onItemSelected={this.onItemSelected}
         //                   itemId={this.state.selectedItem}
-        //                   getData={this.ramApi.getAllLocations}>
+        //                   getData={this.state.ramApi.getAllLocations}>
         //             {(i) => <span>{i.name} - {i.species}</span>}
         //         </ItemList>
         //     </ErrorBoundary>
         // );
 
         return (
-            <ApiProvider value={this.ramApi}>
+            <ApiProvider value={this.state.ramApi}>
                 <ErrorBoundary>
                     <div className="app container">
-                        <Header/>
+                        <Header onApiChange={this.onApiChange} />
                         <section className="bs-docs-section row">
                             {/*<RandomCharacter />*/}
                             {/*<CharactersPage />*/}
@@ -90,11 +100,11 @@ export default class App extends Component {
                             <CharactersList onItemSelected={this.onItemSelected}/>
                             <CharactersInfo selectedItem={selectedItem}/>
 
-                            <LocationsList onItemSelected={this.onItemSelected} />
-                            <LocationsInfo selectedItem={selectedItem} />
+                            {/*<LocationsList onItemSelected={this.onItemSelected} />*/}
+                            {/*<LocationsInfo selectedItem={selectedItem} />*/}
 
-                            <EpisodesList onItemSelected={this.onItemSelected} />
-                            <EpisodesInfo selectedItem={selectedItem} />
+                            {/*<EpisodesList onItemSelected={this.onItemSelected} />*/}
+                            {/*<EpisodesInfo selectedItem={selectedItem} />*/}
                         </section>
                     </div>
                 </ErrorBoundary>

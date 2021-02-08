@@ -9,12 +9,7 @@ const withData = (View) => {
         };
 
         componentDidMount() {
-            this.props.getData()
-                .then((data) => {
-                    this.setState({
-                        data
-                    });
-                });
+            this.update();
         }
 
         componentDidUpdate(prevProps) {
@@ -23,6 +18,18 @@ const withData = (View) => {
                     activeId: this.props.itemId
                 });
             }
+            if(this.props.getData !== prevProps.getData){
+                this.update();
+            }
+        }
+
+        update() {
+            this.props.getData()
+                .then((data) => {
+                    this.setState({
+                        data
+                    });
+                });
         }
 
         render() {
