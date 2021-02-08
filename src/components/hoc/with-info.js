@@ -53,7 +53,6 @@ const withInfo = (View) => {
 
             return (
                 <React.Fragment>
-                    {/*{preloader}*/}
                     <View {...this.props} data={data} loading={loading} error={error} image={image} />
                 </React.Fragment>
             )

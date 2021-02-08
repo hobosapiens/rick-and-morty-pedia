@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import Preloader from "../preloader";
+import ErrorIndicator from "../error-indicator";
 
 const withData = (View) => {
     return class extends Component {
         state = {
             data: null,
-            activeId: null
+            activeId: null,
+            loading: true,
+            error: false
         };
 
         componentDidMount() {
@@ -24,22 +27,40 @@ const withData = (View) => {
         }
 
         update() {
+            this.setState({
+               loading: true
+            });
             this.props.getData()
                 .then((data) => {
                     this.setState({
-                        data
+                        data,
+                        loading: false
                     });
-                });
+                })
+                .catch(this.onError);
         }
 
-        render() {
-            const {data} = this.state;
+        onError = (err) => {
+            this.setState({
+                error: true,
+                loading: false
+            })
+        };
 
-            if(!data) {
+        render() {
+            const {data, loading, error} = this.state;
+
+
+
+            if( loading || !data ) {
                 return <Preloader/>
             }
 
-            return <View {...this.props} data={data} />
+            if(error) {
+                return <ErrorIndicator />
+            }
+
+            return <View data={data} {...this.props} />
         }
     }
 };
