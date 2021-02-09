@@ -3,7 +3,7 @@ import ItemList from "../item-list";
 import withData from "../hoc/with-data";
 import withApi from "../hoc/with-api";
 
-const withChildren = (Wrapped, fn) => {
+const withChildren = (fn) => (Wrapped) => {
     return (props) => {
         return (
             <Wrapped {...props}>
@@ -33,11 +33,20 @@ const mapAllEpisodessMethodToProps = (ramApi) => {
 
 const renderName = ({name}) => <span>{name}</span>;
 
-const CharactersList = withApi(withData(withChildren(ItemList, renderName)), mapAllCharactersMethodToProps);
+const CharactersList = withApi(mapAllCharactersMethodToProps)(
+                        withData(
+                            withChildren(renderName)(
+                                ItemList)));
 
-const LocationsList = withApi(withData(withChildren(ItemList, renderName)), mapAllLocationsMethodToProps);
+const LocationsList = withApi(mapAllLocationsMethodToProps)(
+                        withData(
+                            withChildren(renderName)(
+                                ItemList)));
 
-const EpisodesList = withApi(withData(withChildren(ItemList, renderName)), mapAllEpisodessMethodToProps);
+const EpisodesList = withApi(mapAllEpisodessMethodToProps)(
+                        withData(
+                            withChildren(renderName)(
+                                ItemList)));
 
 export {
     CharactersList,

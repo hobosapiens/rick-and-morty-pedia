@@ -26,6 +26,6 @@ const withCharacterChildren = (Wrapped) => {
     }
 };
 
-const CharactersInfo = withApi(withInfo(withCharacterChildren(ItemInfo)), mapCharacterMethodToProps);
+const CharactersInfo = withApi(mapCharacterMethodToProps)(withInfo(withCharacterChildren(ItemInfo)));
 
 export default CharactersInfo;

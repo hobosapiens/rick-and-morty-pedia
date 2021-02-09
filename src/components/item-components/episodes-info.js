@@ -22,6 +22,6 @@ const withEpisodeChildren = (Wrapped) => {
     }
 };
 
-const EpisodesInfo = withApi(withInfo(withEpisodeChildren(ItemInfo)), mapEpisodeMethodToProps);
+const EpisodesInfo = withApi(mapEpisodeMethodToProps)(withInfo(withEpisodeChildren(ItemInfo)));
 
 export default EpisodesInfo;

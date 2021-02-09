@@ -23,6 +23,6 @@ const withLocationChildren = (Wrapped) => {
     }
 };
 
-const LocationsInfo = withApi(withInfo(withLocationChildren(ItemInfo)), mapLocationMethodToProps);
+const LocationsInfo = withApi(mapLocationMethodToProps)(withInfo(withLocationChildren(ItemInfo)));
 
 export default LocationsInfo;
