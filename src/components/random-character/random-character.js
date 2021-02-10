@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './random-character.css';
 import Api from "../../services/api";
 import Preloader from "../preloader";
@@ -13,15 +14,7 @@ export default class RandomCharacter extends Component {
     };
 
     static propTypes = {
-        updateInterval: (props, propName, componentName) => {
-            const value = props[propName];
-
-            if(typeof value === 'number' && !isNaN(value)) {
-                return null;
-            }
-
-            return new TypeError(`${componentName}: ${propName} must be number`);
-        }
+        updateInterval: PropTypes.number
     };
 
     ramApi = new Api();
