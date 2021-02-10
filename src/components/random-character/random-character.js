@@ -8,6 +8,10 @@ import show from './../../images/show.svg'
 
 export default class RandomCharacter extends Component {
 
+    static defaultProps = {
+        updateInterval: 6000
+    };
+
     ramApi = new Api();
 
     state = {
@@ -19,10 +23,11 @@ export default class RandomCharacter extends Component {
     };
 
     componentDidMount() {
+        const { updateInterval } = this.props;
         this.updateCharacter(this.randomId());
         this.interval = setInterval(() => {
             this.updateCharacter(this.randomId());
-        }, 6000);
+        }, updateInterval);
     }
 
     componentWillUnmount() {

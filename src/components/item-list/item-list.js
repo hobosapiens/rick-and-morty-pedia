@@ -27,4 +27,8 @@ const ItemList = (props) => {
     )
 };
 
+ItemList.defaultProps = {
+    onItemSelected: (id) => {}
+};
+
 export default ItemList;
