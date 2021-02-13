@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "../header";
 import RandomCharacter from "../random-character";
 import './app.css';
@@ -7,6 +8,7 @@ import FakeApi from "../../services/fakeApi";
 import ErrorBoundary from "../error-boundary";
 import { ApiProvider } from './../api-context'
 import { CharactersPage, LocationsPage, EpisodesPage } from "../pages";
+import CharactersInfo from "../item-components/character-info";
 
 export default class App extends Component {
 
@@ -24,22 +26,27 @@ export default class App extends Component {
     };
 
     render() {
-        const {selectedItem} = this.state;
-
         return (
-            <ApiProvider value={this.state.ramApi}>
-                <ErrorBoundary>
-                    <div className="app container">
-                        <Header onApiChange={this.onApiChange} />
-                        <section className="bs-docs-section row">
-                            <RandomCharacter />
-                            <CharactersPage selectedItem={selectedItem} onItemSelected={this.onItemSelected} />
-                            <LocationsPage selectedItem={selectedItem} onItemSelected={this.onItemSelected} />
-                            <EpisodesPage selectedItem={selectedItem} onItemSelected={this.onItemSelected} />
-                        </section>
-                    </div>
-                </ErrorBoundary>
-            </ApiProvider>
+            <ErrorBoundary>
+                <ApiProvider value={this.state.ramApi}>
+                    <Router>
+                        <div className="app container">
+                            <Header onApiChange={this.onApiChange}/>
+                            <section className="bs-docs-section row">
+                                <RandomCharacter/>
+                                <Route path={["/", "/characters"]} component={CharactersPage} exact />
+                                <Route path="/locations" component={LocationsPage} />
+                                <Route path="/episodes" component={EpisodesPage} />
+                                <Route path="/characters/:id"
+                                       render={({match}) => {
+                                           const {id} = match.params;
+                                           return <CharactersInfo selectedItem={id}/>
+                                       }}/>
+                            </section>
+                        </div>
+                    </Router>
+                </ApiProvider>
+            </ErrorBoundary>
         );
     }
 }
