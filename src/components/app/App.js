@@ -9,6 +9,7 @@ import ErrorBoundary from "../error-boundary";
 import { ApiProvider } from './../api-context'
 import { CharactersPage, LocationsPage, EpisodesPage } from "../pages";
 import CharactersInfo from "../item-components/character-info";
+import EpisodesInfo from "../item-components/episodes-info";
 
 export default class App extends Component {
 
@@ -34,13 +35,13 @@ export default class App extends Component {
                             <Header onApiChange={this.onApiChange}/>
                             <section className="bs-docs-section row">
                                 <RandomCharacter/>
-                                <Route path={["/", "/characters"]} component={CharactersPage} exact />
+                                <Route path={["/", "/characters/:id?"]} component={CharactersPage} exact />
                                 <Route path="/locations" component={LocationsPage} />
-                                <Route path="/episodes" component={EpisodesPage} />
-                                <Route path="/characters/:id"
+                                <Route path="/episodes" component={EpisodesPage} exact />
+                                <Route path="/episodes/:id"
                                        render={({match}) => {
                                            const {id} = match.params;
-                                           return <CharactersInfo selectedItem={id}/>
+                                           return <EpisodesInfo selectedItem={id}/>
                                        }}/>
                             </section>
                         </div>

@@ -25,6 +25,8 @@
 }
 
 .choose-item {
+    display: block;
+    padding-top: 20px;
     color: #66d9ef;
     font-size: 80px;
     text-shadow: -3px 5px 0 rgb(30,242,241), 3px 5px 0 rgb(246,5,10);

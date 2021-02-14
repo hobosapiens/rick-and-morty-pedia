@@ -3,7 +3,7 @@ import Row from "../row";
 import {LocationsList, LocationsInfo} from "../item-components";
 import Api from "../../services/api";
 
-export default class LocationsPage extends Component {
+export default class LocationPage extends Component {
 
     state = {
         selectedItem: null,
