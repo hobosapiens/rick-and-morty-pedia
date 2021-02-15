@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Header from "../header";
 import RandomCharacter from "../random-character";
 import './app.css';
@@ -8,13 +8,21 @@ import FakeApi from "../../services/fakeApi";
 import ErrorBoundary from "../error-boundary";
 import { ApiProvider } from './../api-context'
 import { CharactersPage, LocationsPage, EpisodesPage } from "../pages";
-import CharactersInfo from "../item-components/character-info";
 import EpisodesInfo from "../item-components/episodes-info";
+import { LoginPage, AdminPage } from "../pages";
+import notFound from './../../images/404.png'
 
 export default class App extends Component {
 
     state = {
-        ramApi: new Api()
+        ramApi: new Api(),
+        isLoggedIn: false
+    };
+
+    logIn = () => {
+        this.setState({
+            isLoggedIn: true
+        })
     };
 
     onApiChange = () => {
@@ -27,22 +35,38 @@ export default class App extends Component {
     };
 
     render() {
+        const {ramApi,isLoggedIn} = this.state;
+
         return (
             <ErrorBoundary>
-                <ApiProvider value={this.state.ramApi}>
+                <ApiProvider value={ramApi}>
                     <Router>
                         <div className="app container">
-                            <Header onApiChange={this.onApiChange}/>
+                            <Header onApiChange={this.onApiChange}  />
                             <section className="bs-docs-section row">
                                 <RandomCharacter/>
-                                <Route path={["/", "/characters/:id?"]} component={CharactersPage} exact />
-                                <Route path="/locations" component={LocationsPage} />
-                                <Route path="/episodes" component={EpisodesPage} exact />
-                                <Route path="/episodes/:id"
-                                       render={({match}) => {
-                                           const {id} = match.params;
-                                           return <EpisodesInfo selectedItem={id}/>
-                                       }}/>
+                                <Switch>
+                                    <Route path={["/", "/characters/:id?"]} component={CharactersPage} exact />
+                                    <Route path="/locations" component={LocationsPage} />
+                                    <Route path="/episodes" component={EpisodesPage} exact />
+                                    <Route path="/episodes/:id"
+                                           render={({match}) => {
+                                               const {id} = match.params;
+                                               return <EpisodesInfo selectedItem={id}/>
+                                           }}/>
+                                    <Route path="/login" render={() => (
+                                        <LoginPage
+                                            isLoggedIn={isLoggedIn}
+                                            logIn={this.logIn}
+                                        />
+                                    )} />
+                                    <Route path="/admin" render={() => (
+                                        <AdminPage isLoggedIn={isLoggedIn} />
+                                    )}  />
+                                    <Route render={() => (
+                                        <img src={notFound} alt="not found" style={{ margin: "auto"}} />
+                                    )} />
+                                </Switch>
                             </section>
                         </div>
                     </Router>
