@@ -12,7 +12,7 @@ export function Modal ({ children, fade = false, defaultOpened = false }, ref) {
     useImperativeHandle(ref, () => ({
        open: () => setIsOpen(true),
        close: () => setIsOpen(false)
-    }), [close]);
+    }), []);
 
     const handleEscape = useCallback(event => {
         if (event.keyCode === 27) setIsOpen(false)

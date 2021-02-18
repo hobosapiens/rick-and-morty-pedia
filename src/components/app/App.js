@@ -16,7 +16,6 @@ export default class App extends Component {
 
     state = {
         ramApi: new Api(),
-        activeAPi: ['Rick And Morty API', 'Locale Fake API'],
         isLoggedIn: false
     };
 
@@ -65,7 +64,7 @@ export default class App extends Component {
                                         />
                                     )} />
                                     <Route path="/admin" render={() => (
-                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange} />
+                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange} apiType={ramApi.constructor.name} />
                                     )}  />
                                     <Route render={() => (
                                         <img src={notFound} alt="not found" style={{ margin: "auto"}} />

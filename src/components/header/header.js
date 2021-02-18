@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './../modal';
-import modal from "../modal/modal";
 import './header.css';
 
 const Header = () => {
+
+    const modal = useRef(null);
+
     return (
         <nav className="header">
             <ul className="header-menu">
@@ -24,7 +26,7 @@ const Header = () => {
                     <Link to="/admin" className="btn btn-outline-primary nav-link">Admin</Link>
                 </li>
                 <li className="menu-information">
-                    <a href="javascript:void(0)" onClick={() => modal.current.open()}>i</a>
+                    <a href="#0" onClick={() => modal.current.open()}>i</a>
                     <Modal ref={modal}>Project information</Modal>
                 </li>
             </ul>

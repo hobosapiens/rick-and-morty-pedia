@@ -6,9 +6,9 @@ import Preloader from "../preloader";
 import ErrorIndicator from "../error-indicator";
 import close from './../../images/close.svg'
 import show from './../../images/show.svg'
+import {withApi} from "../hoc";
 
-export default class RandomCharacter extends Component {
-
+class RandomCharacterWrapped extends Component {
     static defaultProps = {
         updateInterval: 6000
     };
@@ -59,7 +59,7 @@ export default class RandomCharacter extends Component {
     };
 
     updateCharacter = (id) => {
-        this.ramApi
+        this.props.ramApi
             .getCharacter(id)
             .then(this.onCharacterLoaded)
             .catch(this.onError);
@@ -92,7 +92,10 @@ export default class RandomCharacter extends Component {
     };
 
     render() {
-        console.log(this.props)
+        if(!(this.props.ramApi instanceof Api)) {
+            return (null);
+        }
+
         const {character, loading, error, prevBtnDisabled, nextBtnDisabled, hideContent} = this.state;
 
         const hasData = !(loading || error);
@@ -116,7 +119,7 @@ export default class RandomCharacter extends Component {
             </div>
         )
     }
-};
+}
 
 const CharacterContent = ({prevCharacter, nextCharacter, prevBtnDisabled, nextBtnDisabled, character: {imgURL, name, status, species, gender}}) => {
     const prevBtnClass = prevBtnDisabled ? 'disabled' : '';
@@ -149,7 +152,17 @@ const ToggleButton = ({toggleButton, hideContent}) => {
     return (
         <React.Fragment>
             <div className="toggle-button"
-                    onClick={toggleButton}><img src={hideContent ? show : close}/></div>
+                    onClick={toggleButton}><img src={hideContent ? show : close} alt="toggler" /></div>
         </React.Fragment>
     )
 };
+
+const mapAllEpisodessMethodToProps = (ramApi) => {
+    return {
+        ramApi: ramApi
+    }
+};
+
+const RandomCharacter = withApi(mapAllEpisodessMethodToProps)(RandomCharacterWrapped);
+
+export default RandomCharacter;
