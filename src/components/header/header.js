@@ -10,6 +10,9 @@ const Header = () => {
     return (
         <nav className="header">
             <ul className="header-menu">
+                <li className="menu-home">
+                    <Link to="/login" className="btn btn-outline-primary nav-link">#</Link>
+                </li>
                 <li className="menu-page">
                     <Link to="/characters/" className="btn btn-outline-primary nav-link">Characters</Link>
                 </li>

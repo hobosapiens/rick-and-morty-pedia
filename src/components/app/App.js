@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Header from "../header";
-import RandomCharacter from "../random-character";
 import './app.css';
 import Api from "../../services/api";
 import FakeApi from "../../services/fakeApi";
 import ErrorBoundary from "../error-boundary";
 import { ApiProvider } from './../api-context'
-import { CharactersPage, LocationsPage, EpisodesPage } from "../pages";
+import { CharactersPage, LocationsPage, EpisodesPage, Homepage } from "../pages";
 import EpisodesInfo from "../item-components/episodes-info";
 import { LoginPage, AdminPage } from "../pages";
 import notFound from './../../images/404.png'
@@ -44,11 +43,8 @@ export default class App extends Component {
                         <div className="app container">
                             <Header/>
                             <section className="bs-docs-section row">
-                                <RandomCharacter/>
                                 <Switch>
-                                    <Route exact path="/">
-                                        <Redirect to="/characters/" />
-                                    </Route>
+                                    <Route exact path="/" component={Homepage} />
                                     <Route path="/characters/:id?" component={CharactersPage} exact />
                                     <Route path="/locations" component={LocationsPage} />
                                     <Route path="/episodes" component={EpisodesPage} exact />

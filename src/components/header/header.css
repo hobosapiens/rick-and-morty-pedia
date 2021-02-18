@@ -20,10 +20,16 @@
 }
 
 .header .menu-page a {
-    background: #4cff8f;
     font-size: 20px;
-    text-shadow: 0 0 7px #e89ac7;
+    border-color: #4cff8f;
+    background: #4cff8f;
+    color: #202329;
     transition: all .2s ease-out;
+}
+
+.header .menu-page a:hover {
+    background: transparent;
+    color: #4cff8f;
 }
 
 .header .menu-login {
@@ -44,7 +50,6 @@
 .header .menu-admin a:hover,
 .header .menu-information a:hover {
     border-style: dotted;
-    background: transparent;
 }
 
 .header .menu-information a {
@@ -56,4 +61,15 @@
     animation: morphing 20s infinite;
     display: inline-flex;
     padding: 4px 20px;
+}
+
+.header .menu-home a {
+    font-size: 20px;
+    color: #E89AC7;
+    margin-right: 20px;
+    border: 2px solid #66d9ef;
+}
+
+.header .menu-home a:hover {
+    border-style: dotted;
 }
