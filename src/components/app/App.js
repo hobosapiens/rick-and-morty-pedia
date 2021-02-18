@@ -16,6 +16,7 @@ export default class App extends Component {
 
     state = {
         ramApi: new Api(),
+        activeAPi: ['Rick And Morty API', 'Locale Fake API'],
         isLoggedIn: false
     };
 
@@ -42,11 +43,14 @@ export default class App extends Component {
                 <ApiProvider value={ramApi}>
                     <Router>
                         <div className="app container">
-                            <Header onApiChange={this.onApiChange}  />
+                            <Header/>
                             <section className="bs-docs-section row">
                                 <RandomCharacter/>
                                 <Switch>
-                                    <Route path={["/", "/characters/:id?"]} component={CharactersPage} exact />
+                                    <Route exact path="/">
+                                        <Redirect to="/characters/" />
+                                    </Route>
+                                    <Route path="/characters/:id?" component={CharactersPage} exact />
                                     <Route path="/locations" component={LocationsPage} />
                                     <Route path="/episodes" component={EpisodesPage} exact />
                                     <Route path="/episodes/:id"
@@ -61,7 +65,7 @@ export default class App extends Component {
                                         />
                                     )} />
                                     <Route path="/admin" render={() => (
-                                        <AdminPage isLoggedIn={isLoggedIn} />
+                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange} />
                                     )}  />
                                     <Route render={() => (
                                         <img src={notFound} alt="not found" style={{ margin: "auto"}} />

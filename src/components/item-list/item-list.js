@@ -28,10 +28,6 @@ const ItemList = (props) => {
     )
 };
 
-ItemList.defaultProps = {
-    onItemSelected: (id) => {}
-};
-
 ItemList.propTypes = {
     onItemSelected: PropTypes.func,
     activeId: PropTypes.number,

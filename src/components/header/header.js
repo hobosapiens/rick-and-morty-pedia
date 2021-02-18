@@ -6,34 +6,29 @@ import './header.css';
 
 const Header = () => {
     return (
-        <div className="bs-component header row">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to="/" className="navbar-brand">Rick'N'Mortypedia</Link>
-                <div className="collapse navbar-collapse" id="navbarColor03">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <Link to="/characters/" className="nav-link">Characters</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/locations/" className="nav-link">Locations</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/episodes/" className="nav-link">Episodes</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/login" className="nav-link">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/admin" className="nav-link">Admin</Link>
-                        </li>
-                        <li className="nav-item">
-                            <button onClick={() => modal.current.open()}>Information</button>
-                            <Modal ref={modal}>Project information</Modal>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <nav className="header">
+            <ul className="header-menu">
+                <li className="menu-page">
+                    <Link to="/characters/" className="btn btn-outline-primary nav-link">Characters</Link>
+                </li>
+                <li className="menu-page">
+                    <Link to="/locations/" className="btn btn-outline-primary nav-link">Locations</Link>
+                </li>
+                <li className="menu-page">
+                    <Link to="/episodes/" className="btn btn-outline-primary nav-link">Episodes</Link>
+                </li>
+                <li className="menu-login">
+                    <Link to="/login" className="btn btn-outline-primary nav-link">Login</Link>
+                </li>
+                <li className="menu-admin">
+                    <Link to="/admin" className="btn btn-outline-primary nav-link">Admin</Link>
+                </li>
+                <li className="menu-information">
+                    <a href="javascript:void(0)" onClick={() => modal.current.open()}>i</a>
+                    <Modal ref={modal}>Project information</Modal>
+                </li>
+            </ul>
+        </nav>
     )
 };
 

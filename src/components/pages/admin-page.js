@@ -1,12 +1,13 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const AdminPage = ({ isLoggedIn }) => {
+const AdminPage = ({ isLoggedIn, onApiChange }) => {
 
     if(isLoggedIn){
         return (
-            <div className="jumbotron text-center secret-page">
-                <h3>Добро пожаловать</h3>
+            <div className="jumbotron text-center admin">
+                <div className="admin-text">Welcome to the super-preferred admin page.<br />Where you can change API from real to fake --></div>
+                <button onClick={onApiChange} className="btn btn-outline-primary admin-btn">Change API</button>
             </div>
         )
     } else {

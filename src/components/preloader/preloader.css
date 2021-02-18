@@ -5,22 +5,6 @@
     position: relative;
 }
 
-.preloader:before {
-    content: '';
-    display: block;
-    width: 75px;
-    height: 75px;
-    background: transparent;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    box-shadow: 0 0 50px 20px rgba(53,201,221,1);
-    animation: glow 3s infinite;
-    z-index: 0;
-}
-
 .preloader:after {
     content: 'LOADING';
     position: absolute;

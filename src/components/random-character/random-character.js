@@ -92,6 +92,7 @@ export default class RandomCharacter extends Component {
     };
 
     render() {
+        console.log(this.props)
         const {character, loading, error, prevBtnDisabled, nextBtnDisabled, hideContent} = this.state;
 
         const hasData = !(loading || error);

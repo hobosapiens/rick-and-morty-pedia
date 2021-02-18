@@ -1,0 +1,11 @@
+.login, .admin {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.login-btn, .admin-btn {
+    background: #66d9ef;
+    margin-left: 40px;
+}

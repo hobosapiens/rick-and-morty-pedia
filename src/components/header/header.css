@@ -1,3 +1,59 @@
 .header {
+    width: 100%;
     margin: 20px auto 40px;
+}
+
+.header ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+}
+
+.header ul li {
+    list-style: none;
+}
+
+.header .menu-page + .menu-page {
+    margin-left: 20px;
+}
+
+.header .menu-page a {
+    background: #4cff8f;
+    font-size: 20px;
+    text-shadow: 0 0 7px #e89ac7;
+    transition: all .2s ease-out;
+}
+
+.header .menu-login {
+    margin-left: auto;
+}
+
+.header .menu-login a,
+.header .menu-admin a {
+    border: 2px solid #66d9ef;
+    color: #E89AC7;
+    font-size: 16px;
+    transition: all .2s ease-out;
+    margin-right: 14px;
+    padding: 8px;
+}
+
+.header .menu-login a:hover,
+.header .menu-admin a:hover,
+.header .menu-information a:hover {
+    border-style: dotted;
+    background: transparent;
+}
+
+.header .menu-information a {
+    color: #E89AC7;
+    text-decoration: none;
+    font-size: 30px;
+    border-radius: 50%;
+    border: 2px solid #66d9ef;
+    animation: morphing 20s infinite;
+    display: inline-flex;
+    padding: 4px 20px;
 }
