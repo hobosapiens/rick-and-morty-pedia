@@ -17,10 +17,9 @@ class RandomCharacterWrapped extends Component {
         updateInterval: PropTypes.number
     };
 
-    ramApi = new Api();
-
     state = {
         character: {},
+        charctersCount: 671,
         loading: true,
         prevBtnDisabled: false,
         nextBtnDisabled: false,
@@ -30,6 +29,7 @@ class RandomCharacterWrapped extends Component {
     componentDidMount() {
         const { updateInterval } = this.props;
         this.updateCharacter(this.randomId());
+        this.updateCharactersCount();
         this.interval = setInterval(() => {
             this.updateCharacter(this.randomId());
         }, updateInterval);
@@ -40,7 +40,7 @@ class RandomCharacterWrapped extends Component {
     }
 
     randomId = () => {
-        return Math.floor(Math.random() * (671 - 1) + 1);
+        return Math.floor(Math.random() * (this.state.charctersCount - 1) + 1);
     };
 
     onCharacterLoaded = (character) => {
@@ -56,6 +56,16 @@ class RandomCharacterWrapped extends Component {
             error: true,
             loading: false
         })
+    };
+
+    updateCharactersCount = () => {
+        this.props.ramApi
+            .getAllCharactersCount()
+            .then((body) => {
+                this.setState({
+                    charctersCount: body.count
+                })
+            })
     };
 
     updateCharacter = (id) => {
@@ -76,7 +86,7 @@ class RandomCharacterWrapped extends Component {
     };
 
     nextCharacter = () => {
-        if(this.state.character.id === 671){
+        if(this.state.character.id === this.state.charctersCount){
             this.setState({nextBtnDisabled: true})
         } else {
             this.setState({prevBtnDisabled: false,nextBtnDisabled: false});
@@ -93,13 +103,11 @@ class RandomCharacterWrapped extends Component {
 
     render() {
         if(!(this.props.ramApi instanceof Api)) {
-            return (null);
+            return null;
         }
 
         const {character, loading, error, prevBtnDisabled, nextBtnDisabled, hideContent} = this.state;
-
         const hasData = !(loading || error);
-
         const errorMessage = error ? <ErrorIndicator/> : null;
         const preloader = loading ? <Preloader/> : null;
         const toggleButton = hasData ? <ToggleButton hideContent={hideContent}

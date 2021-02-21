@@ -16,6 +16,11 @@ export  default class Api {
         return res.results.map(this._transformCharacter);
     };
 
+    getAllCharactersCount = async () => {
+        const res = await this.getResource(`/character`);
+        return res.info;
+    };
+
     getCharacter = async (id) => {
         const character = await this.getResource(`/character/${id}`);
         return this._transformCharacter(character);
