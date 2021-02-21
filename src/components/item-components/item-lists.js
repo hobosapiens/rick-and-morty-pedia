@@ -6,6 +6,7 @@ import {
     withChildren,
     compose
 } from '../hoc';
+import withCustomScroll from "../hoc/with-custom-scroll";
 
 const mapAllCharactersMethodToProps = (ramApi) => {
     return {
@@ -30,20 +31,23 @@ const renderName = ({name}) => <span>{name}</span>;
 const CharactersList = compose(
     withApi(mapAllCharactersMethodToProps),
     withData,
-    withChildren(renderName)
+    withChildren(renderName),
+    withCustomScroll
 )(ItemList);
 
 
 const LocationsList = compose(
     withApi(mapAllLocationsMethodToProps),
     withData,
-    withChildren(renderName)
+    withChildren(renderName),
+    withCustomScroll
 )(ItemList);
 
 const EpisodesList = compose(
     withApi(mapAllEpisodessMethodToProps),
     withData,
-    withChildren(renderName)
+    withChildren(renderName),
+    withCustomScroll
 )(ItemList);
 
 export {

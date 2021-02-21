@@ -1,10 +1,7 @@
 .item-list {
-    max-height: 504px;
-    overflow: auto;
-    padding: 0;
-    position: relative;
-    transform: translateY(30px) rotate(-10deg) translateX(30px);
-    box-shadow: -5px -5px 10px 4px rgba(30, 242, 241, .2), 5px 5px 10px 4px rgba(246, 5, 10, .2);
+    padding-right: 14px;
+    background: transparent;
+    border: none;
 }
 
 .item-list li {
