@@ -11,13 +11,13 @@ export  default class Api {
         return await res.json();
     }
 
-    getAllCharacters = async () => {
-        const res = await this.getResource(`/character`);
+    getAllCharacters = async (page) => {
+        const res = await this.getResource(`/character/?page=${page}`);
         return res.results.map(this._transformCharacter);
     };
 
-    getAllCharactersCount = async () => {
-        const res = await this.getResource(`/character`);
+    getAllCharactersInfo = async (page) => {
+        const res = await this.getResource(`/character/?page=${page}`);
         return res.info;
     };
 

@@ -20,7 +20,6 @@ const ItemList = (props) => {
     };
 
     const list = renderList(data);
-
     return (
         <ul className="item-list list-group">
             {list}

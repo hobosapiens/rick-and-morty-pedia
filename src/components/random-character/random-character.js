@@ -60,7 +60,7 @@ class RandomCharacterWrapped extends Component {
 
     updateCharactersCount = () => {
         this.props.ramApi
-            .getAllCharactersCount()
+            .getAllCharactersInfo()
             .then((body) => {
                 this.setState({
                     charctersCount: body.count

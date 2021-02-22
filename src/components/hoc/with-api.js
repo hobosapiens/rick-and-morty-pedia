@@ -8,9 +8,7 @@ const withApi = (mapMethodsToProps) => (Wrapped) => {
             <ApiConsumer>
                 {
                     (ramApi) => {
-
                         const apiProps = mapMethodsToProps(ramApi);
-
                         return (
                             <Wrapped {...props} {...apiProps} />
                         )
