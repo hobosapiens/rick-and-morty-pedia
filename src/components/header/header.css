@@ -32,6 +32,10 @@
     color: #4cff8f;
 }
 
+.header .menu-page a.active {
+    color: #4cff8f !important;
+}
+
 .header .menu-login {
     margin-left: auto;
 }
@@ -50,6 +54,12 @@
 .header .menu-admin a:hover,
 .header .menu-information a:hover {
     border-style: dotted;
+}
+
+.header .menu-login a.active,
+.header .menu-admin a.active,
+.header .menu-home a.active {
+    color: #66d9ef !important;
 }
 
 .header .menu-information button {

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Modal from './../modal';
 import './header.css';
 
@@ -11,22 +11,22 @@ const Header = () => {
         <nav className="header">
             <ul className="header-menu">
                 <li className="menu-home">
-                    <Link to="/" className="btn btn-outline-primary nav-link">#</Link>
+                    <NavLink to="/" className="btn btn-outline-primary nav-link" exact>#</NavLink>
                 </li>
                 <li className="menu-page">
-                    <Link to="/characters/" className="btn btn-outline-primary nav-link">/characters</Link>
+                    <NavLink to="/characters/" className="btn btn-outline-primary nav-link">/characters</NavLink>
                 </li>
                 <li className="menu-page">
-                    <Link to="/locations/" className="btn btn-outline-primary nav-link">/locations</Link>
+                    <NavLink to="/locations/" className="btn btn-outline-primary nav-link">/locations</NavLink>
                 </li>
                 <li className="menu-page">
-                    <Link to="/episodes/" className="btn btn-outline-primary nav-link">/episodes</Link>
+                    <NavLink to="/episodes/" className="btn btn-outline-primary nav-link">/episodes</NavLink>
                 </li>
                 <li className="menu-login">
-                    <Link to="/login" className="btn btn-outline-primary nav-link">Login</Link>
+                    <NavLink to="/login" className="btn btn-outline-primary nav-link">Login</NavLink>
                 </li>
                 <li className="menu-admin">
-                    <Link to="/admin" className="btn btn-outline-primary nav-link">Admin</Link>
+                    <NavLink to="/admin" className="btn btn-outline-primary nav-link">Admin</NavLink>
                 </li>
                 <li className="menu-information">
                     <button type="button" onClick={() => modal.current.open()}>i</button>
