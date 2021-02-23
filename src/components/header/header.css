@@ -52,12 +52,14 @@
     border-style: dotted;
 }
 
-.header .menu-information a {
+.header .menu-information button {
     color: #E89AC7;
     text-decoration: none;
     font-size: 30px;
     border-radius: 50%;
     border: 2px solid #66d9ef;
+    background: transparent;
+    outline: none;
     animation: morphing 20s infinite;
     display: inline-flex;
     padding: 4px 20px;

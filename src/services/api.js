@@ -30,9 +30,14 @@ export  default class Api {
         return `${this._apiBase}/character/avatar/${id}.jpeg`;
     };
 
-    getAllLocations = async () => {
-        const res = await this.getResource(`/location`);
+    getAllLocations = async (page) => {
+        const res = await this.getResource(`/location/?page=${page}`);
         return res.results.map(this._transformLocation);
+    };
+
+    getAllLocationsInfo = async (page) => {
+        const res = await this.getResource(`/location/?page=${page}`);
+        return res.info;
     };
 
     getLocation = async (id) => {
@@ -40,9 +45,14 @@ export  default class Api {
         return this._transformLocation(location);
     };
 
-    getAllEpisodes = async () => {
-        const res = await this.getResource(`/episode`);
+    getAllEpisodes = async (page) => {
+        const res = await this.getResource(`/episode/?page=${page}`);
         return res.results.map(this._transformEpisode);
+    };
+
+    getAllEpisodesInfo = async (page) => {
+        const res = await this.getResource(`/episode/?page=${page}`);
+        return res.info;
     };
 
     getEpisode = async (id) => {

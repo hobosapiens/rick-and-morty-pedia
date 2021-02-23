@@ -1,4 +1,5 @@
 import withCustomScroll from "./with-custom-scroll";
+import withPagination from "./with-pagination";
 import withChildren from "./with-children";
 import withData from "./with-data";
 import withInfo from "./with-info";
@@ -7,9 +8,10 @@ import compose from './compose'
 
 export {
     withCustomScroll,
-    withData,
-    withInfo,
-    withApi,
+    withPagination,
     withChildren,
+    withInfo,
+    withData,
+    withApi,
     compose
 };

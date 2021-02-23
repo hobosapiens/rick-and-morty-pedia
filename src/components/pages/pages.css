@@ -17,3 +17,8 @@
 .homepage {
     margin-top: 20px;
 }
+
+.episodes-list {
+    box-sizing: border-box;
+    padding-left: 15px;
+}

@@ -6,23 +6,28 @@ import {
     withChildren,
     compose
 } from '../hoc';
+import {withRouter} from "react-router-dom";
 import withCustomScroll from "../hoc/with-custom-scroll";
+import withPagination from "../hoc/with-pagination";
 
 const mapAllCharactersMethodToProps = (ramApi) => {
     return {
-        getData: ramApi.getAllCharacters
+        getData: ramApi.getAllCharacters,
+        getInfo: ramApi.getAllCharactersInfo
     }
 };
 
 const mapAllLocationsMethodToProps = (ramApi) => {
     return {
-        getData: ramApi.getAllLocations
+        getData: ramApi.getAllLocations,
+        getInfo: ramApi.getAllLocationsInfo
     }
 };
 
 const mapAllEpisodessMethodToProps = (ramApi) => {
     return {
-        getData: ramApi.getAllEpisodes
+        getData: ramApi.getAllEpisodes,
+        getInfo: ramApi.getAllEpisodesInfo
     }
 };
 
@@ -30,6 +35,8 @@ const renderName = ({name}) => <span>{name}</span>;
 
 const CharactersList = compose(
     withApi(mapAllCharactersMethodToProps),
+    withRouter,
+    withPagination,
     withData,
     withChildren(renderName),
     withCustomScroll
@@ -38,6 +45,8 @@ const CharactersList = compose(
 
 const LocationsList = compose(
     withApi(mapAllLocationsMethodToProps),
+    withRouter,
+    withPagination,
     withData,
     withChildren(renderName),
     withCustomScroll
@@ -45,6 +54,8 @@ const LocationsList = compose(
 
 const EpisodesList = compose(
     withApi(mapAllEpisodessMethodToProps),
+    withRouter,
+    withPagination,
     withData,
     withChildren(renderName),
     withCustomScroll

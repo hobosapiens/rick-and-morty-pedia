@@ -5,9 +5,11 @@ import {withRouter} from "react-router-dom";
 
 const EpisodesPage = ({ history }) => {
     return (
-        <EpisodesList onItemSelected={(id) => {
-            history.push(`${id}`);
-        }}/>
+        <div className="episodes-list">
+            <EpisodesList onItemSelected={(id) => {
+                history.push(`${id}`);
+            }}/>
+        </div>
     )
 };
 

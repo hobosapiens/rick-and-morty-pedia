@@ -29,7 +29,7 @@ const Header = () => {
                     <Link to="/admin" className="btn btn-outline-primary nav-link">Admin</Link>
                 </li>
                 <li className="menu-information">
-                    <a href="#0" onClick={() => modal.current.open()}>i</a>
+                    <button type="button" onClick={() => modal.current.open()}>i</button>
                     <Modal ref={modal}>Project information</Modal>
                 </li>
             </ul>

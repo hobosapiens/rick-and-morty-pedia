@@ -4,6 +4,10 @@ import ErrorIndicator from "../error-indicator";
 
 const withData = (View) => {
     return class extends Component {
+        static defaultProps = {
+            page: 1
+        };
+
         state = {
             data: null,
             activeId: null,
@@ -24,13 +28,16 @@ const withData = (View) => {
             if(this.props.getData !== prevProps.getData){
                 this.update();
             }
+            if(this.props.page !== prevProps.page){
+                this.update();
+            }
         }
 
         update() {
             this.setState({
                loading: true
             });
-            this.props.getData()
+            this.props.getData(this.props.page)
                 .then((data) => {
                     this.setState({
                         data,
@@ -49,9 +56,6 @@ const withData = (View) => {
 
         render() {
             const {data, loading, error} = this.state;
-
-
-
             if( loading || !data ) {
                 return <Preloader/>
             }

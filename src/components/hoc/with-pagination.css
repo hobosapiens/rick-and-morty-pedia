@@ -1,0 +1,32 @@
+.pagination {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.pagination-page {
+    color: #E89AC7;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 2px solid #66d9ef;
+    animation: morphing 20s infinite;
+    display: inline-flex;
+    padding: 4px 10px;
+    margin: 0 15px;
+    cursor: default;
+}
+
+.pagination-prev, .pagination-next {
+    border: 2px solid #66d9ef;
+    color: #E89AC7;
+    font-size: 16px;
+    transition: all .2s ease-out;
+    padding: 0 6px;
+    background: transparent;
+}
+
+.pagination-prev:hover, .pagination-next:hover {
+    border-style: dotted;
+    color: #E89AC7;
+}
