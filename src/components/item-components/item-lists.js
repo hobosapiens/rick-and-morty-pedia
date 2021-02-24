@@ -9,6 +9,7 @@ import {
 import {withRouter} from "react-router-dom";
 import withCustomScroll from "../hoc/with-custom-scroll";
 import withPagination from "../hoc/with-pagination";
+import withSearch from "../hoc/with-search";
 
 const mapAllCharactersMethodToProps = (ramApi) => {
     return {
@@ -36,6 +37,7 @@ const renderName = ({name}) => <span>{name}</span>;
 const CharactersList = compose(
     withApi(mapAllCharactersMethodToProps),
     withRouter,
+    withSearch,
     withPagination,
     withData,
     withChildren(renderName),
@@ -46,6 +48,7 @@ const CharactersList = compose(
 const LocationsList = compose(
     withApi(mapAllLocationsMethodToProps),
     withRouter,
+    withSearch,
     withPagination,
     withData,
     withChildren(renderName),
@@ -55,6 +58,7 @@ const LocationsList = compose(
 const EpisodesList = compose(
     withApi(mapAllEpisodessMethodToProps),
     withRouter,
+    withSearch,
     withPagination,
     withData,
     withChildren(renderName),

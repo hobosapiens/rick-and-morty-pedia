@@ -19,6 +19,9 @@
 }
 
 .episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 297px;
     box-sizing: border-box;
     padding-left: 15px;
 }

@@ -3,6 +3,7 @@ import ItemInfo from "../item-info";
 import withInfo from "../hoc/with-info";
 import Record from "../record";
 import withApi from "../hoc/with-api";
+import compose from "../hoc/compose";
 
 const mapLocationMethodToProps = (ramApi) => {
     return {
@@ -23,6 +24,10 @@ const withLocationChildren = (Wrapped) => {
     }
 };
 
-const LocationsInfo = withApi(mapLocationMethodToProps)(withInfo(withLocationChildren(ItemInfo)));
+const LocationsInfo = compose(
+    withApi(mapLocationMethodToProps),
+    withInfo,
+    withLocationChildren
+    )(ItemInfo);
 
 export default LocationsInfo;

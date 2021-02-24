@@ -1,28 +1,30 @@
 .pagination {
     margin-bottom: 10px;
+    margin-right: 14px;
     display: flex;
     align-items: center;
+    width: auto;
 }
 
 .pagination-page {
     color: #E89AC7;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 50%;
     border: 2px solid #66d9ef;
     animation: morphing 20s infinite;
     display: inline-flex;
     padding: 4px 10px;
-    margin: 0 15px;
+    margin: 0 8px;
     cursor: default;
 }
 
 .pagination-prev, .pagination-next {
     border: 2px solid #66d9ef;
     color: #E89AC7;
-    font-size: 16px;
+    font-size: 14px;
     transition: all .2s ease-out;
-    padding: 0 6px;
+    padding: 0 4px;
     background: transparent;
 }
 

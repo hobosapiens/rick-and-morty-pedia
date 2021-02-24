@@ -25,10 +25,9 @@ const withData = (View) => {
                     activeId: this.props.itemId
                 });
             }
-            if(this.props.getData !== prevProps.getData){
-                this.update();
-            }
-            if(this.props.page !== prevProps.page){
+            if (this.props.getData !== prevProps.getData ||
+                this.props.page !== prevProps.page ||
+                this.props.searchValue !== prevProps.searchValue) {
                 this.update();
             }
         }
@@ -37,11 +36,12 @@ const withData = (View) => {
             this.setState({
                loading: true
             });
-            this.props.getData(this.props.page)
+            this.props.getData(this.props.page + `&name=${this.props.searchValue}`)
                 .then((data) => {
                     this.setState({
                         data,
-                        loading: false
+                        loading: false,
+                        error: false
                     });
                 })
                 .catch(this.onError);
@@ -56,6 +56,7 @@ const withData = (View) => {
 
         render() {
             const {data, loading, error} = this.state;
+
             if( loading || !data ) {
                 return <Preloader/>
             }
