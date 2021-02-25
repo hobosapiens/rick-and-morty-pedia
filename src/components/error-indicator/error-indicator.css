@@ -2,14 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     color: rgb(76, 255, 143);
-    margin: auto;
+    margin: 20px auto auto auto;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .error-indicator-text {
     display: flex;
     flex-direction: column;
     text-align: right;
-    padding: 22px 20px 0 0;
+    padding: 25px 10px 0 0;
 }
