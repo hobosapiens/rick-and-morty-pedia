@@ -1,15 +1,20 @@
 import React from 'react';
-import {EpisodesList} from "../item-components";
 import {withRouter} from "react-router-dom";
+import Row from "../row";
+import {EpisodesList, EpisodesInfo} from "../item-components";
 
-
-const EpisodesPage = ({ history }) => {
+const EpisodesPage = ({ history, match }) => {
     return (
-        <div className="episodes-list">
-            <EpisodesList onItemSelected={(id) => {
-                history.push(`${id}`);
-            }}/>
-        </div>
+        <Row
+            left={
+                <EpisodesList onItemSelected={(id) => {
+                    history.push(`${id}`);
+                }}/>
+            }
+            right={
+                <EpisodesInfo selectedItem={match.params.id} />
+            }
+        />
     )
 };
 

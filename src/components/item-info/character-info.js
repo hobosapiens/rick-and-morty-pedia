@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CharacterInfo = (props) => {
+const CharacterInfoData = (props) => {
     const {data, image, children} = props;
     return (
         <React.Fragment>
@@ -20,4 +20,4 @@ const CharacterInfo = (props) => {
     )
 };
 
-export default CharacterInfo;
+export default CharacterInfoData;

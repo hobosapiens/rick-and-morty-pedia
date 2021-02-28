@@ -2,9 +2,9 @@ import React from 'react';
 import './item-info.css';
 import ErrorIndicator from "../error-indicator";
 import Preloader from "../preloader";
-import CharacterInfo from "./character-info";
-import LocationsInfo from "./locations-info";
-import EpisodesInfo from "./episodes-info";
+import CharacterInfoData from "./character-info";
+import LocationsInfoData from "./locations-info";
+import EpisodesInfoData from "./episodes-info";
 
 const ItemInfo = (props) => {
         const {data, image, loading, error, selectedItem, children, type, getImageUrl} = props;
@@ -38,10 +38,10 @@ const ItemInfoContent = ({data, image, children, type, getImageUrl}) => {
         <div className="item-info jumbotron">
             {
                 {
-                    'character': <CharacterInfo data={data} image={image} children={children} />,
-                    'location': <LocationsInfo data={data} children={children}
+                    'character': <CharacterInfoData data={data} image={image} children={children} />,
+                    'location': <LocationsInfoData data={data} children={children}
                                                residents={data.residents} getImageUrl={getImageUrl} />,
-                    'episode': <EpisodesInfo data={data} children={children}
+                    'episode': <EpisodesInfoData data={data} children={children}
                                              characters={data.characters} getImageUrl={getImageUrl} />
                 }[type]
             }

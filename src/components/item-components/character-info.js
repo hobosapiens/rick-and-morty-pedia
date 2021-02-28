@@ -15,14 +15,12 @@ const mapCharacterMethodToProps = (ramApi) => {
 const withCharacterChildren = (Wrapped) => {
     return (props) => {
         return (
-
             <Wrapped type={'character'} {...props}>
                 <Record label="Name" field="name"/>
                 <Record label="Status" field="status"/>
                 <Record label="Species" field="species"/>
                 <Record label="Gender" field="gender"/>
             </Wrapped>
-
         )
     }
 };

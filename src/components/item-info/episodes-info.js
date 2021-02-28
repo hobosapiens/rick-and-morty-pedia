@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const EpisodesInfo = (props) => {
-    const {data, children, characters, getImageUrl} = props;
+const EpisodesInfoData = (props) => {
+    const {data, children, characters = [], getImageUrl} = props;
     const charactersArr = characters.map(c => {
         const id = c.match(/\d+$/g);
         return <li key={id}><Link to={`/characters/${id}`}><img src={getImageUrl(id)} alt="character"/></Link></li>
@@ -20,7 +20,7 @@ const EpisodesInfo = (props) => {
             <div className="col-lg-12 episode-characters">
                 {charactersArr.length > 0 ?
                     <Characters charactersArr={charactersArr} /> :
-                    <span>No characters</span>
+                    <div className="episode-title">No characters</div>
                 }
             </div>
         </React.Fragment>
@@ -38,4 +38,4 @@ const Characters = ({charactersArr}) => {
     )
 };
 
-export default EpisodesInfo;
+export default EpisodesInfoData;

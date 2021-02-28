@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const LocationsInfo = (props) => {
-    const {data, children, residents, getImageUrl } = props;
+const LocationsInfoData = (props) => {
+    const {data, children, residents = [], getImageUrl } = props;
     const residentsArr = residents.map(r => {
         const id = r.match(/\d+$/g);
         return <li key={id}><Link to={`/characters/${id}`}><img src={getImageUrl(id)} alt="character"/></Link></li>
@@ -20,7 +20,7 @@ const LocationsInfo = (props) => {
             <div className="col-lg-12 location-residents">
                 {residentsArr.length > 0 ?
                     <Residents residentsArr={residentsArr}/> :
-                    <span>No residents</span>
+                    <div className="location-title">No residents</div>
                 }
             </div>
         </React.Fragment>
@@ -39,4 +39,4 @@ const Residents = ({residentsArr}) => {
 };
 
 
-export default LocationsInfo;
+export default LocationsInfoData;

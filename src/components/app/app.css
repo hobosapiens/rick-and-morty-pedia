@@ -21,7 +21,7 @@ section {
 .jumbotron {
     background: #E89AC7;
     border: 5px solid rgb(76, 255, 143);
-    border-radius: 0px 100px 100px 100px / 0px 100px 100px 100px;
+    border-radius: 100px 100px 0px 100px / 100px 100px 100px 100px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3) inset, 0 0 20px 0 rgba(53, 201, 221, 1) !important;
 }
 

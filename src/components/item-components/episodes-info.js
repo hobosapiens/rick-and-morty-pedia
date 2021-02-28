@@ -1,3 +1,4 @@
+import React from 'react';
 import Record from "../record";
 import withApi from "../hoc/with-api";
 import withInfo from "../hoc/with-info";
@@ -26,6 +27,7 @@ const withEpisodeChildren = (Wrapped) => {
 const EpisodesInfo = compose(
     withApi(mapEpisodeMethodToProps),
     withInfo,
-    withEpisodeChildren)(ItemInfo);
+    withEpisodeChildren
+)(ItemInfo);
 
 export default EpisodesInfo;

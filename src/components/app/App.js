@@ -7,7 +7,6 @@ import FakeApi from "../../services/fakeApi";
 import ErrorBoundary from "../error-boundary";
 import { ApiProvider } from './../api-context'
 import { CharactersPage, LocationsPage, EpisodesPage, Homepage } from "../pages";
-import EpisodesInfo from "../item-components/episodes-info";
 import { LoginPage, AdminPage } from "../pages";
 import notFound from './../../images/404.png'
 
@@ -47,12 +46,7 @@ export default class App extends Component {
                                     <Route exact path="/" component={Homepage} />
                                     <Route path="/characters/:id?" component={CharactersPage} exact />
                                     <Route path="/locations/:id?" component={LocationsPage} exact />
-                                    <Route path="/episodes" component={EpisodesPage} exact />
-                                    <Route path="/episodes/:id"
-                                           render={({match}) => {
-                                               const {id} = match.params;
-                                               return <EpisodesInfo selectedItem={id}/>
-                                           }}/>
+                                    <Route path="/episodes/:id?" component={EpisodesPage} exact />
                                     <Route path="/login" render={() => (
                                         <LoginPage
                                             isLoggedIn={isLoggedIn}
