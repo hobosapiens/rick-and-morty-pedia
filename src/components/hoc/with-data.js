@@ -10,7 +10,6 @@ const withData = (View) => {
 
         state = {
             data: null,
-            activeId: null,
             loading: true,
             error: false
         };
@@ -20,11 +19,6 @@ const withData = (View) => {
         }
 
         componentDidUpdate(prevProps) {
-            if(this.props.itemId !== prevProps.itemId){
-                this.setState({
-                    activeId: this.props.itemId
-                });
-            }
             if (this.props.getData !== prevProps.getData ||
                 this.props.page !== prevProps.page ||
                 this.props.searchValue !== prevProps.searchValue) {

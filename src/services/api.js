@@ -86,7 +86,8 @@ export  default class Api {
             id: episode.id,
             name: episode.name,
             air_date: episode.air_date,
-            episode: episode.episode
+            episode: episode.episode,
+            characters: episode.characters
         }
     }
 }

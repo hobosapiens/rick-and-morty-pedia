@@ -46,7 +46,7 @@ export default class App extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Homepage} />
                                     <Route path="/characters/:id?" component={CharactersPage} exact />
-                                    <Route path="/locations" component={LocationsPage} />
+                                    <Route path="/locations/:id?" component={LocationsPage} exact />
                                     <Route path="/episodes" component={EpisodesPage} exact />
                                     <Route path="/episodes/:id"
                                            render={({match}) => {

@@ -2,6 +2,7 @@ import Record from "../record";
 import withApi from "../hoc/with-api";
 import withInfo from "../hoc/with-info";
 import ItemInfo from "../item-info";
+import compose from "../hoc/compose";
 
 const mapEpisodeMethodToProps = (ramApi) => {
     return {
@@ -22,6 +23,9 @@ const withEpisodeChildren = (Wrapped) => {
     }
 };
 
-const EpisodesInfo = withApi(mapEpisodeMethodToProps)(withInfo(withEpisodeChildren(ItemInfo)));
+const EpisodesInfo = compose(
+    withApi(mapEpisodeMethodToProps),
+    withInfo,
+    withEpisodeChildren)(ItemInfo);
 
 export default EpisodesInfo;

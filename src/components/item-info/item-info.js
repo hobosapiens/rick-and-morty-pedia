@@ -41,7 +41,8 @@ const ItemInfoContent = ({data, image, children, type, getImageUrl}) => {
                     'character': <CharacterInfo data={data} image={image} children={children} />,
                     'location': <LocationsInfo data={data} children={children}
                                                residents={data.residents} getImageUrl={getImageUrl} />,
-                    'episode': <EpisodesInfo data={data} children={children} />
+                    'episode': <EpisodesInfo data={data} children={children}
+                                             characters={data.characters} getImageUrl={getImageUrl} />
                 }[type]
             }
         </div>

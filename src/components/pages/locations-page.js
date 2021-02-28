@@ -1,27 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Row from "../row";
 import {LocationsList, LocationsInfo} from "../item-components";
-import Api from "../../services/api";
 
-export default class LocationPage extends Component {
+const LocationPage = ({ history, match }) => {
 
-    state = {
-        selectedItem: null,
-        ramApi: new Api()
-    };
+    return (
+        <Row
+            left={
+                <LocationsList onItemSelected={(id) => {
+                    history.push(`${id}`);
+                }}/>
+            }
+            right={
+                <LocationsInfo selectedItem={match.params.id} />
+            }
+        />
+    )
+};
 
-    onItemSelected = (id) => {
-        this.setState({
-            selectedItem: id
-        });
-    };
-
-    render() {
-        return (
-            <Row
-                left={<LocationsList onItemSelected={this.onItemSelected}/>}
-                right={<LocationsInfo selectedItem={this.state.selectedItem}/>}
-            />
-        )
-    }
-}
+export default LocationPage;

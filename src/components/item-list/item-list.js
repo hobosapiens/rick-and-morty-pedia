@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 import './item-list.css';
 
 const ItemList = (props) => {
-
-    const {data, activeId, onItemSelected, children: renderLabel} = props;
+    const {data, onItemSelected, match, children: renderLabel} = props;
 
     const renderList = (arr) => {
         return arr.map((item) => {
             const {id} = item;
             const label = renderLabel(item);
-
-            return <li className={activeId === id ?
+            return <li className={parseInt(match.params.id) === id ?
                 'list-group-item list-group-item-action active' :
-                'list-group-item list-group-item-action'}
+                'list-group-item list-group-item-action ts'}
                        onClick={() => onItemSelected(id)}
                        key={id}>{label}</li>
         })
@@ -29,7 +27,6 @@ const ItemList = (props) => {
 
 ItemList.propTypes = {
     onItemSelected: PropTypes.func,
-    activeId: PropTypes.number,
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     children: PropTypes.func.isRequired
 };
