@@ -13,7 +13,7 @@ const mapEpisodeMethodToProps = (ramApi) => {
 const withEpisodeChildren = (Wrapped) => {
     return (props) => {
         return (
-            <Wrapped {...props}>
+            <Wrapped type={'episode'} {...props}>
                 <Record label="Name" field="name" />
                 <Record label="Date" field="air_date" />
                 <Record label="Episode" field="episode" />

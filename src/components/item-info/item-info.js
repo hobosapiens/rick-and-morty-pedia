@@ -2,11 +2,12 @@ import React from 'react';
 import './item-info.css';
 import ErrorIndicator from "../error-indicator";
 import Preloader from "../preloader";
+import CharacterInfo from "./character-info";
+import LocationsInfo from "./locations-info";
+import EpisodesInfo from "./episodes-info";
 
 const ItemInfo = (props) => {
-
-        const {data, image, loading, error, selectedItem} = props;
-
+        const {data, image, loading, error, selectedItem, children, type, getImageUrl} = props;
         const itemChoose = !error ? <span className="choose-item">CHOOSE ONE</span> : null;
         const errorMessage = error ? <ErrorIndicator/> : null;
 
@@ -21,7 +22,8 @@ const ItemInfo = (props) => {
 
         const hasData = !(loading || error);
         const preloader = loading ? <Preloader/> : null;
-        const content = hasData ? <ItemInfoContent data={data} image={image} children={props.children} /> : null;
+        const content = hasData ? <ItemInfoContent data={data} image={image} children={children}
+                                                   type={type} getImageUrl={getImageUrl} /> : null;
 
         return (
             <React.Fragment>
@@ -31,19 +33,17 @@ const ItemInfo = (props) => {
         )
 };
 
-const ItemInfoContent = ({data, image, children}) => {
+const ItemInfoContent = ({data, image, children, type, getImageUrl}) => {
     return (
         <div className="item-info jumbotron">
-            <div className="item-info-photo col-lg-4 jumbotron">
-                <img src={image} alt={data.name} />
-            </div>
-            <div className="item-info-text col-lg-8">
-                <ul className="list-group list-group-flush">
-                    { React.Children.map(children, (child) => {
-                        return React.cloneElement(child, { data });
-                    }) }
-                </ul>
-            </div>
+            {
+                {
+                    'character': <CharacterInfo data={data} image={image} children={children} />,
+                    'location': <LocationsInfo data={data} children={children}
+                                               residents={data.residents} getImageUrl={getImageUrl} />,
+                    'episode': <EpisodesInfo data={data} children={children} />
+                }[type]
+            }
         </div>
     )
 };

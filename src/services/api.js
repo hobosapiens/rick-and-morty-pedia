@@ -26,7 +26,7 @@ export  default class Api {
         return this._transformCharacter(character);
     };
 
-    getCharacterImage = ({ id }) => {
+    getCharacterImage = (id) => {
         return `${this._apiBase}/character/avatar/${id}.jpeg`;
     };
 
@@ -76,7 +76,8 @@ export  default class Api {
             id: location.id,
             name: location.name,
             type: location.type,
-            dimension: location.dimension
+            dimension: location.dimension,
+            residents: location.residents
         }
     };
 

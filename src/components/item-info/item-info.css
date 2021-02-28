@@ -1,5 +1,6 @@
 .item-info {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     padding: 2rem;
     margin-top: 50px;
@@ -8,6 +9,9 @@
 
 .item-info .list-group {
     box-shadow: -5px -5px 10px 4px rgba(30, 242, 241, 0.2), 5px 5px 10px 4px rgba(246, 5, 10, 0.2);
+}
+
+.item-info .character-info .list-group {
     transform: translateY(-10px) translateX(25px);
 }
 
@@ -31,4 +35,34 @@
     color: #66d9ef;
     font-size: 80px;
     text-shadow: -3px 5px 0 rgb(30,242,241), 3px 5px 0 rgb(246,5,10);
+}
+
+.residents {
+    padding-top: 20px;
+}
+
+.residents ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.residents ul li {
+    margin-bottom: 20px;
+}
+
+.residents ul li:not(:nth-of-type(4n)) {
+    margin-right: 20px;
+}
+
+.residents ul li {
+    list-style: none;
+    width: calc((100% - 60px)/ 4);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.residents ul li img {
+    max-width: 100%;
 }

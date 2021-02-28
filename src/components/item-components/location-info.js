@@ -15,7 +15,7 @@ const mapLocationMethodToProps = (ramApi) => {
 const withLocationChildren = (Wrapped) => {
     return (props) => {
         return (
-            <Wrapped {...props}>
+            <Wrapped type={'location'} {...props} >
                 <Record label="Name" field="name" />
                 <Record label="Type" field="type" />
                 <Record label="Dimension" field="dimension" />

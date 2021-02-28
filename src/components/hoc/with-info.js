@@ -32,7 +32,7 @@ const withInfo = (View) => {
                 .then((data) =>
                     this.setState({
                         data,
-                        image: this.props.getImageUrl(data),
+                        image: this.props.getImageUrl(data.id),
                         loading: false,
                         error: false
                     })
@@ -48,9 +48,7 @@ const withInfo = (View) => {
         };
 
         render() {
-
             const {data, loading, error, image} = this.state;
-
             return (
                 <React.Fragment>
                     <View {...this.props} data={data} loading={loading} error={error} image={image} />
