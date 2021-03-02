@@ -37,7 +37,7 @@ export default class App extends Component {
         return (
             <ErrorBoundary>
                 <ApiProvider value={ramApi}>
-                    <Router basename={"https://hobosapiens.github.io/rick-and-morty-pedia/"}>
+                    <Router basename={process.env.PUBLIC_URL}>
                         <div className="app container">
                             <Header/>
                             <section className="bs-docs-section row">
