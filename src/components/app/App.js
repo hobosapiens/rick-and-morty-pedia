@@ -55,7 +55,8 @@ export default class App extends Component {
                                         />
                                     )}/>
                                     <Route path="/admin" render={() => (
-                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange} realApi={realApi} />
+                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange}
+                                                   realApi={realApi}/>
                                     )}/>
                                     <Route render={() => (
                                         <img src={notFound} alt="not found" style={{margin: "auto"}}/>
