@@ -1,18 +1,19 @@
-# SPA по мультсериалу Rick and Morty
+# Rick and Morty database
 
-Проект на GitHub pages: https://hobosapiens.github.io/rick-and-morty-pedia/
+GitHub pages: https://hobosapiens.github.io/rick-and-morty-pedia/
 
-Проект был выполнен в целях изучения React. 
-Улучшения навыков работы с реальной API. 
+Проект был выполнен в целях изучения React.<br /> 
+Улучшения навыков работы с реальной API.<br /> 
 А так же погружения в такие темы как:
-- Жизненный цикл компонент
-- Context API
+
 - HOC
 - Hooks
+- Context API
 - propTypes
 - props.children
-- react-router и.т.д.
+- react-router
+- Жизненный цикл компонент и.т.д.
 
-Дизайн был выполнен в стиле мультика, по этому получился весьма вырвиглазным.
+Дизайн был выполнен в стиле мультика, по этому получился весьма вырвиглазным.<br /> 
 Верстка отошла на второй план т.к. главная цель была - изучение React.
 
