@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "/rick-and-morty-pedia/",
+  "start_url": "https://hobosapiens.github.io/rick-and-morty-pedia/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
