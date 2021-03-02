@@ -13,6 +13,7 @@ export default class App extends Component {
 
     state = {
         ramApi: new Api(),
+        realApi: true,
         isLoggedIn: false
     };
 
@@ -26,13 +27,14 @@ export default class App extends Component {
         this.setState(({ramApi}) => {
             const mainApi = ramApi instanceof Api ? FakeApi : Api;
             return {
-                ramApi: new mainApi()
+                ramApi: new mainApi(),
+                realApi: !this.state.realApi
             }
         })
     };
 
     render() {
-        const {ramApi, isLoggedIn} = this.state;
+        const {ramApi, realApi, isLoggedIn} = this.state;
 
         return (
             <ErrorBoundary>
@@ -53,8 +55,7 @@ export default class App extends Component {
                                         />
                                     )}/>
                                     <Route path="/admin" render={() => (
-                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange}
-                                                   apiType={ramApi.constructor.name}/>
+                                        <AdminPage isLoggedIn={isLoggedIn} onApiChange={this.onApiChange} realApi={realApi} />
                                     )}/>
                                     <Route render={() => (
                                         <img src={notFound} alt="not found" style={{margin: "auto"}}/>
