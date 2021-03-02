@@ -9,7 +9,7 @@
     padding: 0;
     margin: 0 40px 0 0;
     overflow: hidden;
-    background: #202329!important;
+    background: #202329 !important;
     animation: morphing 20s infinite;
 }
 
@@ -24,7 +24,7 @@
 .random-character-info .list-group {
     position: relative;
     overflow: initial;
-    box-shadow: -5px -5px 10px 4px rgba(30,242,241,0.2), 5px 5px 10px 4px rgba(246,5,10,0.2);
+    box-shadow: -5px -5px 10px 4px rgba(30, 242, 241, 0.2), 5px 5px 10px 4px rgba(246, 5, 10, 0.2);
     transform: translateX(15px);
 }
 

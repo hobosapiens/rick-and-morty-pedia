@@ -1,7 +1,4 @@
-import {
-    ApiProvider,
-    ApiConsumer
-} from './api-context'
+import {ApiConsumer, ApiProvider} from './api-context'
 
 export {
     ApiProvider,

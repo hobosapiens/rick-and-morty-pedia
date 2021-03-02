@@ -17,7 +17,7 @@ const withSearch = (View) => {
                     <form onSubmit={this.handleSubmit} className="search">
                         <input type="text" className="form-control form-control-sm"
                                id="inputSmall" value={this.state.value} placeholder="/ s e a r c h"
-                               onChange={this.handleChange} />
+                               onChange={this.handleChange}/>
                     </form>
                     <View searchValue={this.state.searchValue} {...this.props} />
                 </React.Fragment>

@@ -11,7 +11,7 @@ const ErrorIndicator = () => {
                 <span>(but Morty already fixing it)</span>
             </div>
             <div className="error-indicator-img">
-                <img src={error} alt="error" />
+                <img src={error} alt="error"/>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const LocationsInfoData = (props) => {
-    const {data, children, residents = [], getImageUrl } = props;
+    const {data, children, residents = [], getImageUrl} = props;
     const residentsArr = residents.map(r => {
         const id = r.match(/\d+$/g);
         return <li key={id}><Link to={`/characters/${id}`}><img src={getImageUrl(id)} alt="character"/></Link></li>

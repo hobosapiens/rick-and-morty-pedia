@@ -7,12 +7,12 @@
 .search input {
     width: 100%;
     border: 2px solid #66d9ef;
-    background: #333333!important;
-    color: #E89AC7!important;
+    background: #333333 !important;
+    color: #E89AC7 !important;
 }
 
 .search input:focus {
-    border-style: dashed!important;
+    border-style: dashed !important;
 }
 
 .search input::placeholder {

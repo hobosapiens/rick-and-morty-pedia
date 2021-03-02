@@ -12,14 +12,14 @@ const EpisodesInfoData = (props) => {
         <React.Fragment>
             <div className="item-info-text col-lg-12 episode-description">
                 <ul className="list-group list-group-flush">
-                    { React.Children.map(children, (child) => {
-                        return React.cloneElement(child, { data });
-                    }) }
+                    {React.Children.map(children, (child) => {
+                        return React.cloneElement(child, {data});
+                    })}
                 </ul>
             </div>
             <div className="col-lg-12 episode-characters">
                 {charactersArr.length > 0 ?
-                    <Characters charactersArr={charactersArr} /> :
+                    <Characters charactersArr={charactersArr}/> :
                     <div className="episode-title">No characters</div>
                 }
             </div>

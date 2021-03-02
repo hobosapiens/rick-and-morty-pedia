@@ -16,9 +16,9 @@ const withLocationChildren = (Wrapped) => {
     return (props) => {
         return (
             <Wrapped type={'location'} {...props} >
-                <Record label="Name" field="name" />
-                <Record label="Type" field="type" />
-                <Record label="Dimension" field="dimension" />
+                <Record label="Name" field="name"/>
+                <Record label="Type" field="type"/>
+                <Record label="Dimension" field="dimension"/>
             </Wrapped>
         )
     }
@@ -28,6 +28,6 @@ const LocationsInfo = compose(
     withApi(mapLocationMethodToProps),
     withInfo,
     withLocationChildren
-    )(ItemInfo);
+)(ItemInfo);
 
 export default LocationsInfo;

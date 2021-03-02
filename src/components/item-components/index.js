@@ -1,14 +1,6 @@
-import {
-    CharactersList,
-    LocationsList,
-    EpisodesList
-} from './item-lists';
+import {CharactersList, EpisodesList, LocationsList} from './item-lists';
 
-import {
-    CharactersInfo,
-    LocationsInfo,
-    EpisodesInfo
-} from './item-infos';
+import {CharactersInfo, EpisodesInfo, LocationsInfo} from './item-infos';
 
 export {
     CharactersList,

@@ -1,11 +1,6 @@
 import React from 'react';
 import ItemList from "../item-list";
-import {
-    withData,
-    withApi,
-    withChildren,
-    compose
-} from '../hoc';
+import {compose, withApi, withChildren, withData} from '../hoc';
 import {withRouter} from "react-router-dom";
 import withCustomScroll from "../hoc/with-custom-scroll";
 import withPagination from "../hoc/with-pagination";

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
+import {Scrollbars} from 'react-custom-scrollbars';
 
-const renderThumb = ({ style, ...props }) => {
+const renderThumb = ({style, ...props}) => {
     const thumbStyle = {
         borderRadius: 6,
         backgroundColor: '#E89AC7'
     };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    return <div style={{...style, ...thumbStyle}} {...props} />;
 };
 
 const CustomScrollbars = props => (
@@ -22,11 +22,11 @@ const scrollStyles = {
     height: 500
 };
 
-const withCustomScroll =  (Wrapped) => {
+const withCustomScroll = (Wrapped) => {
     return (props) => {
         return (
             <div className="list-wrapper" style={scrollStyles}>
-                <CustomScrollbars >
+                <CustomScrollbars>
                     <Wrapped {...props} />
                 </CustomScrollbars>
             </div>

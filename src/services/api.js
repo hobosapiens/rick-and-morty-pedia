@@ -1,11 +1,11 @@
-export  default class Api {
+export default class Api {
 
     _apiBase = 'https://rickandmortyapi.com/api';
 
-    async getResource(url){
+    async getResource(url) {
         const res = await fetch(`${this._apiBase}${url}`);
 
-        if(!res.ok){
+        if (!res.ok) {
             throw new Error(`Couldn't fetch ${this._apiBase}${url}, recieved ${res.status}`)
         }
         return await res.json();

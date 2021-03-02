@@ -20,7 +20,7 @@
     height: 220px;
     padding: 0;
     overflow: hidden;
-    background: #202329!important;
+    background: #202329 !important;
     animation: morphing 15s infinite;
     transform: translateY(-10px) translateX(-80px);
 }
@@ -32,7 +32,7 @@
 
 .item-info-photo img {
     max-width: 100%;
-    box-shadow: 0 0 3px 3px rgba(53,201,221,0.1);
+    box-shadow: 0 0 3px 3px rgba(53, 201, 221, 0.1);
 }
 
 .choose-item {
@@ -69,7 +69,7 @@ episode-characters {
 
 .location-residents ul li,
 .episode-characters ul li {
-    width: calc((100% - 80px)/ 5);
+    width: calc((100% - 80px) / 5);
     list-style: none;
     overflow: hidden;
     padding: 0;
@@ -88,6 +88,6 @@ episode-characters {
 }
 
 .episode-title,
-.location-title{
+.location-title {
     margin-top: 30px;
 }

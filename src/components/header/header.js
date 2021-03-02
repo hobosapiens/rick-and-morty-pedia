@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useRef} from 'react';
+import {NavLink} from 'react-router-dom';
 import Modal from './../modal';
 import './header.css';
 
@@ -30,7 +30,8 @@ const Header = () => {
                 </li>
                 <li className="menu-information">
                     <button type="button" onClick={() => modal.current.open()}>i</button>
-                    <Modal ref={modal}>This project was made for educational purposes.<br />To better get acquainted with the React technology<br />and learn about the methods of interaction with API.</Modal>
+                    <Modal ref={modal}>This project was made for educational purposes.<br/>To better get acquainted with
+                        the React technology<br/>and learn about the methods of interaction with API.</Modal>
                 </li>
             </ul>
         </nav>

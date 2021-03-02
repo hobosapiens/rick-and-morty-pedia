@@ -1,3 +1,3 @@
 import Record from "./record";
 
-export default  Record;
+export default Record;

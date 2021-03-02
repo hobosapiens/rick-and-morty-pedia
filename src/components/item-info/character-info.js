@@ -6,14 +6,14 @@ const CharacterInfoData = (props) => {
         <React.Fragment>
             <div className="col-lg-4 item-info-photo-wrapper">
                 <div className="jumbotron item-info-photo">
-                    <img src={image} alt={data.name} />
+                    <img src={image} alt={data.name}/>
                 </div>
             </div>
             <div className="item-info-text col-lg-8 character-info">
                 <ul className="list-group list-group-flush">
-                    { React.Children.map(children, (child) => {
-                        return React.cloneElement(child, { data });
-                    }) }
+                    {React.Children.map(children, (child) => {
+                        return React.cloneElement(child, {data});
+                    })}
                 </ul>
             </div>
         </React.Fragment>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Row from "../row";
-import {LocationsList, LocationsInfo} from "../item-components";
+import {LocationsInfo, LocationsList} from "../item-components";
 
-const LocationPage = ({ history, match }) => {
+const LocationPage = ({history, match}) => {
 
     return (
         <Row
@@ -12,7 +12,7 @@ const LocationPage = ({ history, match }) => {
                 }}/>
             }
             right={
-                <LocationsInfo selectedItem={match.params.id} />
+                <LocationsInfo selectedItem={match.params.id}/>
             }
         />
     )

@@ -11,9 +11,10 @@ export default class ErrorBoundary extends Component {
             hasError: true
         })
     }
+
     render() {
-        if(this.state.hasError){
-            return <ErrorIndicator />
+        if (this.state.hasError) {
+            return <ErrorIndicator/>
         }
         return this.props.children;
     }

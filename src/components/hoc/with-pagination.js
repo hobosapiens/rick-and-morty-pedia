@@ -13,7 +13,7 @@ const withPagination = (View) => {
         }
 
         update() {
-            if(this.props.getInfo){
+            if (this.props.getInfo) {
                 this.props.getInfo()
                     .then((data) => {
                         this.setState({
@@ -24,7 +24,7 @@ const withPagination = (View) => {
         }
 
         prevPage = () => {
-            if(this.state.page > 1){
+            if (this.state.page > 1) {
                 this.setState({
                     page: this.state.page - 1
                 })
@@ -32,7 +32,7 @@ const withPagination = (View) => {
         };
 
         nextPage = () => {
-            if(this.state.page < this.state.pages){
+            if (this.state.page < this.state.pages) {
                 this.setState({
                     page: this.state.page + 1
                 })
@@ -45,11 +45,13 @@ const withPagination = (View) => {
             return (
                 <React.Fragment>
                     <div className="pagination">
-                        <button type="button" className="btn pagination-prev" onClick={this.prevPage}>{prevButtonSymbol}</button>
+                        <button type="button" className="btn pagination-prev"
+                                onClick={this.prevPage}>{prevButtonSymbol}</button>
                         <span className="pagination-page">{this.state.page}</span>
-                        <button type="button" className="btn pagination-next" onClick={this.nextPage}>{nextButtonSymbol}</button>
+                        <button type="button" className="btn pagination-next"
+                                onClick={this.nextPage}>{nextButtonSymbol}</button>
                     </div>
-                    <View {...this.props} page={this.state.page} />
+                    <View {...this.props} page={this.state.page}/>
                 </React.Fragment>
             )
         }

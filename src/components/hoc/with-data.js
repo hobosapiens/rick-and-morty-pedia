@@ -28,7 +28,7 @@ const withData = (View) => {
 
         update() {
             this.setState({
-               loading: true
+                loading: true
             });
             this.props.getData(this.props.page + `&name=${this.props.searchValue}`)
                 .then((data) => {
@@ -51,12 +51,12 @@ const withData = (View) => {
         render() {
             const {data, loading, error} = this.state;
 
-            if( loading || !data ) {
+            if (loading || !data) {
                 return <Preloader/>
             }
 
-            if(error) {
-                return <ErrorIndicator />
+            if (error) {
+                return <ErrorIndicator/>
             }
 
             return <View data={data} {...this.props} />

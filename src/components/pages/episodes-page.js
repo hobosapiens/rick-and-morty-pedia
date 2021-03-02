@@ -1,9 +1,9 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 import Row from "../row";
-import {EpisodesList, EpisodesInfo} from "../item-components";
+import {EpisodesInfo, EpisodesList} from "../item-components";
 
-const EpisodesPage = ({ history, match }) => {
+const EpisodesPage = ({history, match}) => {
     return (
         <Row
             left={
@@ -12,7 +12,7 @@ const EpisodesPage = ({ history, match }) => {
                 }}/>
             }
             right={
-                <EpisodesInfo selectedItem={match.params.id} />
+                <EpisodesInfo selectedItem={match.params.id}/>
             }
         />
     )

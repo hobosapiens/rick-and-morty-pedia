@@ -1,18 +1,18 @@
-import React, { useEffect, useImperativeHandle, useState, forwardRef, useCallback } from 'react'
-import { createPortal } from 'react-dom';
+import React, {forwardRef, useCallback, useEffect, useImperativeHandle, useState} from 'react'
+import {createPortal} from 'react-dom';
 import './modal.css';
 import {ReactComponent as CloseIcon} from './../../images/close.svg';
 
 const modalElement = document.getElementById('modal-root');
 
-export function Modal ({ children, fade = false, defaultOpened = false }, ref) {
+export function Modal({children, fade = false, defaultOpened = false}, ref) {
     const [isOpen, setIsOpen] = useState(defaultOpened);
 
     const close = useCallback(() => setIsOpen(false), []);
 
     useImperativeHandle(ref, () => ({
-       open: () => setIsOpen(true),
-       close: () => setIsOpen(false)
+        open: () => setIsOpen(true),
+        close: () => setIsOpen(false)
     }), []);
 
     const handleEscape = useCallback(event => {
@@ -20,9 +20,9 @@ export function Modal ({ children, fade = false, defaultOpened = false }, ref) {
     }, []);
 
     useEffect(() => {
-       if (isOpen) document.addEventListener('keydown', handleEscape, false);
+        if (isOpen) document.addEventListener('keydown', handleEscape, false);
         return () => {
-           document.removeEventListener('keydown', handleEscape, false)
+            document.removeEventListener('keydown', handleEscape, false)
         }
     }, [handleEscape, isOpen]);
 
@@ -31,7 +31,7 @@ export function Modal ({ children, fade = false, defaultOpened = false }, ref) {
             <div className={`modal ${fade ? 'modal-fade' : ''}`}>
                 <div className="modal-overlay" onClick={close}/>
                 <span role="button" className="modal-close" aria-label="close" onClick={close}>
-                    <CloseIcon />
+                    <CloseIcon/>
                 </span>
                 <div className="modal-body jumbotron">{children}</div>
             </div>

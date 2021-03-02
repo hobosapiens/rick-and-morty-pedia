@@ -16,9 +16,9 @@ const withEpisodeChildren = (Wrapped) => {
     return (props) => {
         return (
             <Wrapped type={'episode'} {...props}>
-                <Record label="Name" field="name" />
-                <Record label="Date" field="air_date" />
-                <Record label="Episode" field="episode" />
+                <Record label="Name" field="name"/>
+                <Record label="Date" field="air_date"/>
+                <Record label="Episode" field="episode"/>
             </Wrapped>
         )
     }

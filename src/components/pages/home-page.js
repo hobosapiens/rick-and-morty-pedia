@@ -5,7 +5,7 @@ import rick from './../../images/rick.png';
 const Homepage = () => {
     return (
         <React.Fragment>
-            <RandomCharacter />
+            <RandomCharacter/>
             <div className="jumbotron text-center homepage">
                 <div className="homepage-text">Welcome to Rick And Morty cartoon database, have fun.</div>
                 <div className="homepage-img">

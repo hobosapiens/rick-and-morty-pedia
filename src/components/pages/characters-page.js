@@ -1,9 +1,9 @@
 import React from 'react';
-import {CharactersList, CharactersInfo} from "../item-components";
+import {CharactersInfo, CharactersList} from "../item-components";
 import {withRouter} from "react-router-dom";
 import Row from "../row";
 
-const CharactersPage = ({ history, match }) => {
+const CharactersPage = ({history, match}) => {
     return (
         <Row
             left={

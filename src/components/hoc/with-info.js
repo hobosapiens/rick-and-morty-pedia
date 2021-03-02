@@ -25,7 +25,7 @@ const withInfo = (View) => {
             this.setState({
                 loading: true
             });
-            if(!this.props.selectedItem) {
+            if (!this.props.selectedItem) {
                 return;
             }
             this.props.getData(this.props.selectedItem)
@@ -51,7 +51,7 @@ const withInfo = (View) => {
             const {data, loading, error, image} = this.state;
             return (
                 <React.Fragment>
-                    <View {...this.props} data={data} loading={loading} error={error} image={image} />
+                    <View {...this.props} data={data} loading={loading} error={error} image={image}/>
                 </React.Fragment>
             )
         }
