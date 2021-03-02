@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/rick-and-morty-pedia/static/css/main.9101e177.chunk.css",
-    "main.js": "/rick-and-morty-pedia/static/js/main.b842cce9.chunk.js",
-    "main.js.map": "/rick-and-morty-pedia/static/js/main.b842cce9.chunk.js.map",
+    "main.js": "/rick-and-morty-pedia/static/js/main.5b1a0b2f.chunk.js",
+    "main.js.map": "/rick-and-morty-pedia/static/js/main.5b1a0b2f.chunk.js.map",
     "runtime-main.js": "/rick-and-morty-pedia/static/js/runtime-main.5470f0dc.js",
     "runtime-main.js.map": "/rick-and-morty-pedia/static/js/runtime-main.5470f0dc.js.map",
-    "static/js/2.4379f852.chunk.js": "/rick-and-morty-pedia/static/js/2.4379f852.chunk.js",
-    "static/js/2.4379f852.chunk.js.map": "/rick-and-morty-pedia/static/js/2.4379f852.chunk.js.map",
+    "static/js/2.82f07e3e.chunk.js": "/rick-and-morty-pedia/static/js/2.82f07e3e.chunk.js",
+    "static/js/2.82f07e3e.chunk.js.map": "/rick-and-morty-pedia/static/js/2.82f07e3e.chunk.js.map",
     "static/js/3.377083bd.chunk.js": "/rick-and-morty-pedia/static/js/3.377083bd.chunk.js",
     "static/js/3.377083bd.chunk.js.map": "/rick-and-morty-pedia/static/js/3.377083bd.chunk.js.map",
     "index.html": "/rick-and-morty-pedia/index.html",
     "static/css/main.9101e177.chunk.css.map": "/rick-and-morty-pedia/static/css/main.9101e177.chunk.css.map",
-    "static/js/2.4379f852.chunk.js.LICENSE.txt": "/rick-and-morty-pedia/static/js/2.4379f852.chunk.js.LICENSE.txt",
+    "static/js/2.82f07e3e.chunk.js.LICENSE.txt": "/rick-and-morty-pedia/static/js/2.82f07e3e.chunk.js.LICENSE.txt",
     "static/media/404.1551aed8.png": "/rick-and-morty-pedia/static/media/404.1551aed8.png",
     "static/media/close.a2a9c405.svg": "/rick-and-morty-pedia/static/media/close.a2a9c405.svg",
     "static/media/app.css": "/rick-and-morty-pedia/static/media/stars.90c266f7.png",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5470f0dc.js",
-    "static/js/2.4379f852.chunk.js",
+    "static/js/2.82f07e3e.chunk.js",
     "static/css/main.9101e177.chunk.css",
-    "static/js/main.b842cce9.chunk.js"
+    "static/js/main.5b1a0b2f.chunk.js"
   ]
 }
