@@ -16,13 +16,11 @@
 
 .homepage {
     margin-top: 20px;
-    padding: 84px 32px 44px;
 }
 
-.homepage-img {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    height: 20px;
+.homepage-text {
+    text-align: right;
+    margin-right: 20px;
 }
 
 .episodes-list {
