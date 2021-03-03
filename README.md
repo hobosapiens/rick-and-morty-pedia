@@ -1,4 +1,4 @@
-# Rick and Morty database
+### База данных по мультсериалу Рик и Морти
 
 GitHub pages: https://hobosapiens.github.io/rick-and-morty-pedia/
 
@@ -14,6 +14,25 @@ GitHub pages: https://hobosapiens.github.io/rick-and-morty-pedia/
 - react-router
 - Жизненный цикл компонент и.т.д.
 
-Дизайн был выполнен в стиле мультика, по этому получился весьма вырвиглазным.<br /> 
-Верстка отошла на второй план т.к. главная цель была - изучение React.
+Верстка отошла на второй план т.к. главная цель была - изучение React.<br /> 
+Дизайн был выполнен в стиле мультика, не судите строго.
+<br />
+<br />
+### Rick and Morty database
 
+GitHub pages: https://hobosapiens.github.io/rick-and-morty-pedia/
+
+The project was done for the purpose of learning React.<br />
+To improve my skills of working with the real API.<br />
+As well as immersion in topics such as:
+
+- HOC
+- Hooks
+- Context API
+- propTypes
+- props.children
+- react-router
+- The lifecycle of a component etc.
+
+Css faded into the background because the main goal was to learn React. <br />
+The design was made in the style of a cartoon, do not judge strictly.
