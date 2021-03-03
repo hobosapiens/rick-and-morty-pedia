@@ -39,7 +39,7 @@ export default class App extends Component {
         return (
             <ErrorBoundary>
                 <ApiProvider value={ramApi}>
-                    <Router basename={process.env.PUBLIC_URL}>
+                    <Router>
                         <div className="app container">
                             <Header/>
                             <section className="bs-docs-section row">
