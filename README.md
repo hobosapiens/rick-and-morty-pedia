@@ -16,7 +16,6 @@ As well as immersion in topics such as:
 
 Css faded into the background because the main goal was to learn React. <br />
 The design was made in the style of a cartoon, do not judge strictly.
-
 <br />
 <br />
 ### База данных по мультсериалу Рик и Морти
